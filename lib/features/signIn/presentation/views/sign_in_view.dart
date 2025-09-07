@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tec_store/features/signIn/presentation/views/widgets/sign_in_view_body.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({super.key});
@@ -7,9 +8,7 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Login View"),
-      ),
+      body: const SignInViewBody()
     );
   }
 }
