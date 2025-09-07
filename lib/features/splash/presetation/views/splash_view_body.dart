@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tec_store/core/utils/app_images.dart';
 import 'package:tec_store/features/signIn/presentation/views/sign_in_view.dart';
+import 'package:tec_store/generated/l10n.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -27,7 +28,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           Image.asset(Assets.whiteLogo, height: 180),
           SizedBox(height: 40),
           Text(
-            "Welcome to",
+            S.of(context).welcome,
             style: TextStyle(
               color: Colors.white,
               fontSize: 45,
