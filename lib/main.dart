@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec_store/core/helpers/on_generate_routs.dart';
 import 'core/utils/app_colors.dart';
 import 'features/splash/presetation/views/splash_view.dart';
+import 'generated/l10n.dart';
 
 void main() {
   runApp(const TecZone());
@@ -13,7 +15,17 @@ class TecZone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
+      
+      locale: Locale("ar"),
+      
       theme: ThemeData(
         fontFamily: "Cairo",
         primaryColor: AppColors.primaryColor,
