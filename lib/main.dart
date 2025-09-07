@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tec_store/core/helpers/on_generate_routs.dart';
 import 'core/utils/app_colors.dart';
 import 'features/splash/presetation/views/splash_view.dart';
 
@@ -18,7 +19,8 @@ class TecZone extends StatelessWidget {
         primaryColor: AppColors.primaryColor,
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
       ),
-      home: const SplashView(),
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: SplashView.routName,
     );
   }
 }

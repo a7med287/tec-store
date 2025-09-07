@@ -77,6 +77,9 @@ flutter:
     - family: Cairo
       fonts:
         - asset: assets/fonts/Cairo-Regular.ttf
+    - family: fontLogo
+      fonts:
+        - asset: assets/fonts/narmMC-Regular.otf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
