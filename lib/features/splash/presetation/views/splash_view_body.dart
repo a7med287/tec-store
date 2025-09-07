@@ -26,8 +26,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(Assets.whiteLogo, height: 180),
-          SizedBox(height: 40),
-          Text(
+          const SizedBox(height: 40),
+           Text(
             S.of(context).welcome,
             style: TextStyle(
               color: Colors.white,
@@ -36,7 +36,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
             ),
           ),
 
-          Text(
+          const Text(
             "TecZone",
             style: TextStyle(
               color: Colors.white,
