@@ -7,6 +7,6 @@
   "signUp": "إنشاء حساب",
   "DontHaveAnAccount": "ليس لديك حساب؟  ",
   "Or": "أو",
-  "loginWithGoogle": "تسجيل الدخول باستخدام جوجل"
-
+  "loginWithGoogle": "تسجيل الدخول باستخدام جوجل",
+  "sendEmail" : "ارسل البريد الالكتروني"
 }

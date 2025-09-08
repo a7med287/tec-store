@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Login with google",
     ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome to"),

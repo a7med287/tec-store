@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tec_store/features/auth/presentation/views/forget_password_view.dart';
 import 'package:tec_store/generated/l10n.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -9,7 +10,9 @@ class ForgotPasswordWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, ForgetPasswordView.routName);
+      },
       child: Text(
         S.of(context).forgotPassword,
         style: TextStyle(

@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تسجيل الدخول باستخدام جوجل",
     ),
     "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
+    "sendEmail": MessageLookupByLibrary.simpleMessage("ارسل البريد الالكتروني"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك فى"),

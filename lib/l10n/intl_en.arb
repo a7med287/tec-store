@@ -7,5 +7,6 @@
   "signUp" :"Sign Up" ,
   "DontHaveAnAccount" : "Don't have an account?  ",
   "Or" : "Or",
-  "loginWithGoogle": "Login with google"
+  "loginWithGoogle": "Login with google",
+  "sendEmail" : "Send Email"
 }
