@@ -1,3 +1,11 @@
 {
-  "welcome": "Welcome to"
+  "welcome": "Welcome to",
+  "signIn": "Sign In",
+  "email": "Email",
+  "password": "Password",
+  "forgotPassword": "Forgot Password ?",
+  "signUp" :"Sign Up" ,
+  "DontHaveAnAccount" : "Don't have an account?  ",
+  "Or" : "Or",
+  "loginWithGoogle": "Login with google"
 }

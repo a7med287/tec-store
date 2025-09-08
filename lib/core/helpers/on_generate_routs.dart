@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tec_store/features/signIn/presentation/views/sign_in_view.dart';
 import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
+
+import '../../features/auth/presentation/views/sign_in_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings){
 
