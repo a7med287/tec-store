@@ -58,6 +58,61 @@ class S {
   String get welcome {
     return Intl.message('Welcome to', name: 'welcome', desc: '', args: []);
   }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message('Sign In', name: 'signIn', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Forgot Password ?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password ?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
+  }
+
+  /// `Don't have an account?  `
+  String get DontHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account?  ',
+      name: 'DontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or`
+  String get Or {
+    return Intl.message('Or', name: 'Or', desc: '', args: []);
+  }
+
+  /// `Login with google`
+  String get loginWithGoogle {
+    return Intl.message(
+      'Login with google',
+      name: 'loginWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
