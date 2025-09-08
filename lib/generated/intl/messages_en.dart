@@ -22,10 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "Continue": MessageLookupByLibrary.simpleMessage("Continue"),
+    "DidntReceiveAnyCode": MessageLookupByLibrary.simpleMessage(
+      "Didn\'t receive any code?",
+    ),
     "DontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?  ",
     ),
+    "EnterThe6Digit": MessageLookupByLibrary.simpleMessage(
+      "Enter the 6-digit verification code ",
+    ),
     "Or": MessageLookupByLibrary.simpleMessage("Or"),
+    "PleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email to receive OTP to create a new password via email",
+    ),
+    "ResendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "VerifyYourEmailtoContinue": MessageLookupByLibrary.simpleMessage(
+      "Verify your email to continue",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
     "loginWithGoogle": MessageLookupByLibrary.simpleMessage(
@@ -35,6 +49,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "verifyYourEmail": MessageLookupByLibrary.simpleMessage(
+      "Verify Your Email",
+    ),
     "welcome": MessageLookupByLibrary.simpleMessage("Welcome to"),
   };
 }

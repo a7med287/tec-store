@@ -22,10 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "Continue": MessageLookupByLibrary.simpleMessage("استمر"),
+    "DidntReceiveAnyCode": MessageLookupByLibrary.simpleMessage(
+      "لم تستلم أي رمز؟",
+    ),
     "DontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "ليس لديك حساب؟  ",
     ),
+    "EnterThe6Digit": MessageLookupByLibrary.simpleMessage(
+      "أدخل رمز التحقق المكون من 6 أرقام ",
+    ),
     "Or": MessageLookupByLibrary.simpleMessage("أو"),
+    "PleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال بريدك الإلكتروني لتلقي OTP لإنشاء كلمة مرور جديدة عبر البريد الإلكتروني",
+    ),
+    "ResendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
+    "VerifyYourEmailtoContinue": MessageLookupByLibrary.simpleMessage(
+      "تحقق من بريدك الإلكتروني للمتابعة",
+    ),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
@@ -37,6 +51,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendEmail": MessageLookupByLibrary.simpleMessage("ارسل البريد الالكتروني"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "verifyYourEmail": MessageLookupByLibrary.simpleMessage(
+      "تحقق من بريدك الإلكتروني",
+    ),
     "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك فى"),
   };
 }

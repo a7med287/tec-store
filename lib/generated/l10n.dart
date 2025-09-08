@@ -118,6 +118,66 @@ class S {
   String get sendEmail {
     return Intl.message('Send Email', name: 'sendEmail', desc: '', args: []);
   }
+
+  /// `Verify Your Email`
+  String get verifyYourEmail {
+    return Intl.message(
+      'Verify Your Email',
+      name: 'verifyYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get Continue {
+    return Intl.message('Continue', name: 'Continue', desc: '', args: []);
+  }
+
+  /// `Resend Code`
+  String get ResendCode {
+    return Intl.message('Resend Code', name: 'ResendCode', desc: '', args: []);
+  }
+
+  /// `Didn't receive any code?`
+  String get DidntReceiveAnyCode {
+    return Intl.message(
+      'Didn\'t receive any code?',
+      name: 'DidntReceiveAnyCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify your email to continue`
+  String get VerifyYourEmailtoContinue {
+    return Intl.message(
+      'Verify your email to continue',
+      name: 'VerifyYourEmailtoContinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the 6-digit verification code `
+  String get EnterThe6Digit {
+    return Intl.message(
+      'Enter the 6-digit verification code ',
+      name: 'EnterThe6Digit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email to receive OTP to create a new password via email`
+  String get PleaseEnterYourEmail {
+    return Intl.message(
+      'Please enter your email to receive OTP to create a new password via email',
+      name: 'PleaseEnterYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

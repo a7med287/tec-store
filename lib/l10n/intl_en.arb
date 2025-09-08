@@ -8,5 +8,12 @@
   "DontHaveAnAccount" : "Don't have an account?  ",
   "Or" : "Or",
   "loginWithGoogle": "Login with google",
-  "sendEmail" : "Send Email"
+  "sendEmail" : "Send Email",
+  "verifyYourEmail" : "Verify Your Email",
+  "Continue" : "Continue",
+  "ResendCode" : "Resend Code",
+  "DidntReceiveAnyCode" : "Didn't receive any code?",
+  "VerifyYourEmailtoContinue" : "Verify your email to continue",
+  "EnterThe6Digit" : "Enter the 6-digit verification code ",
+  "PleaseEnterYourEmail" : "Please enter your email to receive OTP to create a new password via email"
 }

@@ -8,5 +8,12 @@
   "DontHaveAnAccount": "ليس لديك حساب؟  ",
   "Or": "أو",
   "loginWithGoogle": "تسجيل الدخول باستخدام جوجل",
-  "sendEmail" : "ارسل البريد الالكتروني"
+  "sendEmail" : "ارسل البريد الالكتروني",
+  "verifyYourEmail" : "تحقق من بريدك الإلكتروني",
+  "Continue" : "استمر",
+  "ResendCode" : "إعادة إرسال الرمز",
+  "DidntReceiveAnyCode" : "لم تستلم أي رمز؟",
+  "VerifyYourEmailtoContinue" : "تحقق من بريدك الإلكتروني للمتابعة",
+  "EnterThe6Digit" : "أدخل رمز التحقق المكون من 6 أرقام ",
+  "PleaseEnterYourEmail" : "يرجى إدخال بريدك الإلكتروني لتلقي OTP لإنشاء كلمة مرور جديدة عبر البريد الإلكتروني"
 }
