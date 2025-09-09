@@ -23,6 +23,12 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if(value!.isEmpty){
+          return "this is required";
+        }
+        return null;
+      },
       obscureText: isNotVisible,
       onSaved: widget.onSaved,
       keyboardType: widget.textInputType,

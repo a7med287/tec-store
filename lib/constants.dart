@@ -1,0 +1,1 @@
+const String baseUrlApi = "https://dummyjson.com/auth/";
