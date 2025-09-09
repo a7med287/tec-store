@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tec_store/core/utils/app_images.dart';
+import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/core/widgets/password_text_filed.dart';
 import 'package:tec_store/features/auth/presentation/cubits/sign_in_cubit/sign_in_cubit.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/or_divider.dart';
@@ -34,7 +34,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
           child: Column(
             children: [
               const SizedBox(height: 25),
-              Image.asset(Assets.logo, height: 180),
+              Image.asset(Assets.assetsImagesLogo, height: 180),
               const SizedBox(height: 32),
               CustomTextFormField(
                 onSaved: (value) {
@@ -63,7 +63,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                     context.read<SignInCubit>().signInWithEmailAndPassword(
+                    context.read<SignInCubit>().signInWithEmailAndPassword(
                       email,
                       password,
                     );

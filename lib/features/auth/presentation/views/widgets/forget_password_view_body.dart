@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tec_store/core/utils/app_images.dart';
+import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/features/auth/presentation/views/verfiy_view.dart';
 import 'package:tec_store/generated/l10n.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -16,7 +16,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 25),
-            Image.asset(Assets.logo, height: 180),
+            Image.asset(Assets.assetsImagesLogo, height: 180),
             SizedBox(height: 20),
             Text(
               S.of(context).forgotPassword,
@@ -24,7 +24,10 @@ class ForgetPasswordViewBody extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
-            Text(S.of(context).PleaseEnterYourEmail,textAlign: TextAlign.center,),
+            Text(
+              S.of(context).PleaseEnterYourEmail,
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(height: 32),
             CustomTextFormField(
               hintText: S.of(context).email,
@@ -32,9 +35,12 @@ class ForgetPasswordViewBody extends StatelessWidget {
               textInputType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 16),
-             CustomButton(text: S.of(context).sendEmail,onTap: () {
-               Navigator.pushNamed(context, VerfiyView.routName);
-             },),
+            CustomButton(
+              text: S.of(context).sendEmail,
+              onTap: () {
+                Navigator.pushNamed(context, VerfiyView.routName);
+              },
+            ),
             const SizedBox(height: 26),
           ],
         ),
@@ -42,4 +48,3 @@ class ForgetPasswordViewBody extends StatelessWidget {
     );
   }
 }
-

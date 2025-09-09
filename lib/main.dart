@@ -29,7 +29,7 @@ class TecZone extends StatelessWidget {
 
       // switch between ar => (Arabic language) Or en => (English)
       locale: Locale("en"),
-      
+
       theme: ThemeData(
         fontFamily: "Cairo",
         primaryColor: AppColors.primaryColor,
@@ -40,4 +40,3 @@ class TecZone extends StatelessWidget {
     );
   }
 }
-
