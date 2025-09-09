@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tec_store/core/utils/app_images.dart';
-import 'package:tec_store/features/auth/presentation/views/verfiy_view.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/didnt_receive_any_code_widget.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/pin_digits_widget.dart';
 import 'package:tec_store/generated/l10n.dart';
@@ -32,7 +31,7 @@ class VerfiyViewBody extends StatelessWidget {
             CustomButton(
               text: S.of(context).Continue,
               onTap: () {
-                Navigator.pushNamed(context, VerfiyView.routName);
+
               },
             ),
             const SizedBox(height: 26),
