@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tec_store/core/utils/app_images.dart';
+import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/didnt_receive_any_code_widget.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/pin_digits_widget.dart';
 import 'package:tec_store/generated/l10n.dart';
@@ -16,7 +16,7 @@ class VerfiyViewBody extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 25),
-            Image.asset(Assets.logo, height: 180),
+            Image.asset(Assets.assetsImagesLogo, height: 180),
             SizedBox(height: 20),
             Text(
               S.of(context).VerifyYourEmailtoContinue,
@@ -28,12 +28,7 @@ class VerfiyViewBody extends StatelessWidget {
             const SizedBox(height: 32),
             PinDigitsWidget(),
             const SizedBox(height: 16),
-            CustomButton(
-              text: S.of(context).Continue,
-              onTap: () {
-
-              },
-            ),
+            CustomButton(text: S.of(context).Continue, onTap: () {}),
             const SizedBox(height: 26),
             DidntReceiveAnyCodeWidget(),
           ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tec_store/core/utils/app_images.dart';
+import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/generated/l10n.dart';
 
 import '../../../auth/presentation/views/sign_in_view.dart';
@@ -26,9 +26,9 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(Assets.whiteLogo, height: 180),
+          Image.asset(Assets.assetsImagesWhiteLogo, height: 180),
           const SizedBox(height: 40),
-           Text(
+          Text(
             S.of(context).welcome,
             style: TextStyle(
               color: Colors.white,
