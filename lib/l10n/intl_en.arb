@@ -1,10 +1,12 @@
 {
   "welcome": "Welcome to",
   "signIn": "Sign In",
+  "signUp" :"Sign Up" ,
+  "userName": "User Name",
   "email": "Email",
   "password": "Password",
+  "confirmPassword": "Confirm Password",
   "forgotPassword": "Forgot Password ?",
-  "signUp" :"Sign Up" ,
   "DontHaveAnAccount" : "Don't have an account?  ",
   "Or" : "Or",
   "loginWithGoogle": "Login with google",
@@ -16,4 +18,6 @@
   "VerifyYourEmailtoContinue" : "Verify your email to continue",
   "EnterThe6Digit" : "Enter the 6-digit verification code ",
   "PleaseEnterYourEmail" : "Please enter your email to receive OTP to create a new password via email"
+
+
 }

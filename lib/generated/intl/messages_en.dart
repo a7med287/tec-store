@@ -40,6 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "VerifyYourEmailtoContinue": MessageLookupByLibrary.simpleMessage(
       "Verify your email to continue",
     ),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
     "loginWithGoogle": MessageLookupByLibrary.simpleMessage(
@@ -49,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "userName": MessageLookupByLibrary.simpleMessage("User Name"),
     "verifyYourEmail": MessageLookupByLibrary.simpleMessage(
       "Verify Your Email",
     ),
