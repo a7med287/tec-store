@@ -28,7 +28,7 @@ class TecZone extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       // switch between ar => (Arabic language) Or en => (English)
-      locale: Locale("en"),
+      locale: Locale("ar"),
 
       theme: ThemeData(
         fontFamily: "Cairo",

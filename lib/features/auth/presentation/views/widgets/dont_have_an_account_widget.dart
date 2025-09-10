@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tec_store/features/auth/presentation/views/register_view.dart';
 import 'package:tec_store/generated/l10n.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -20,7 +21,9 @@ class DontHaveAnAccountWidget extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, RegisterView.routName);
+          },
           child: Text(
             S.of(context).signUp,
             style: TextStyle(

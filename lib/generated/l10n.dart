@@ -64,6 +64,16 @@ class S {
     return Intl.message('Sign In', name: 'signIn', desc: '', args: []);
   }
 
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
+  }
+
+  /// `User Name`
+  String get userName {
+    return Intl.message('User Name', name: 'userName', desc: '', args: []);
+  }
+
   /// `Email`
   String get email {
     return Intl.message('Email', name: 'email', desc: '', args: []);
@@ -74,6 +84,16 @@ class S {
     return Intl.message('Password', name: 'password', desc: '', args: []);
   }
 
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forgot Password ?`
   String get forgotPassword {
     return Intl.message(
@@ -82,11 +102,6 @@ class S {
       desc: '',
       args: [],
     );
-  }
-
-  /// `Sign Up`
-  String get signUp {
-    return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
   }
 
   /// `Don't have an account?  `
