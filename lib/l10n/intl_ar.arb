@@ -17,5 +17,7 @@
   "DidntReceiveAnyCode" : "لم تستلم أي رمز؟",
   "VerifyYourEmailtoContinue" : "تحقق من بريدك الإلكتروني للمتابعة",
   "EnterThe6Digit" : "أدخل رمز التحقق المكون من 6 أرقام ",
-  "PleaseEnterYourEmail" : "يرجى إدخال بريدك الإلكتروني لتلقي OTP لإنشاء كلمة مرور جديدة عبر البريد الإلكتروني"
+  "PleaseEnterYourEmail" : "يرجى إدخال بريدك الإلكتروني لتلقي OTP لإنشاء كلمة مرور جديدة عبر البريد الإلكتروني",
+  "emailOrPasswordIsNotCorrect" : "البريد الالكتروني أو كلمة المرور غير صحيحة",
+  "close":"إغلاق"
 }

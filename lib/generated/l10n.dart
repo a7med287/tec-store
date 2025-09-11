@@ -193,6 +193,21 @@ class S {
       args: [],
     );
   }
+
+  /// `Email or Password is not correct`
+  String get emailOrPasswordIsNotCorrect {
+    return Intl.message(
+      'Email or Password is not correct',
+      name: 'emailOrPasswordIsNotCorrect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message('Close', name: 'close', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

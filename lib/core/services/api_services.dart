@@ -16,15 +16,15 @@ class ApiServices {
 
       Uri.parse('$baseUrl$endpoint'),
       body: jsonEncode(body),
-      headers: {'Content-Type': 'application/json', ...?headers},
+      headers: headers ,
     );
 
+    final responseBody = jsonDecode(response.body);
+
     if (response.statusCode >= 200 && response.statusCode < 300) {
-      return jsonDecode(response.body);
+      return responseBody;
     } else {
-      throw Exception(
-        'HTTP Error: ${response.statusCode} -body is ${response.body}',
-      );
+      throw Exception(responseBody["message"] ?? "Unknown error");
     }
   }
 }
