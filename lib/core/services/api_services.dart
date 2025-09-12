@@ -24,7 +24,11 @@ class ApiServices {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return responseBody;
     } else {
-      throw Exception(responseBody["message"] ?? "Unknown error");
+      return {
+        "success": false,
+        "statusCode": response.statusCode,
+        "message": responseBody  ?? "Unknown error",
+      };
     }
   }
 }

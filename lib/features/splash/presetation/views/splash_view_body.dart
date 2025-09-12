@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tec_store/constants.dart';
-import 'package:tec_store/core/services/shared_prefrences_singletone.dart';
 import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/features/home/presentation/views/home_view.dart';
 import 'package:tec_store/generated/l10n.dart';
