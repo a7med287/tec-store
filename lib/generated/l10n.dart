@@ -193,6 +193,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Must be at least 8 characters`
+  String get passwordRule {
+    return Intl.message(
+      'Must be at least 8 characters',
+      name: 'passwordRule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create New Password`
+  String get CreateNewPassword {
+    return Intl.message(
+      'Create New Password',
+      name: 'CreateNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm New Password`
+  String get confirmNewPassword {
+    return Intl.message(
+      'Confirm New Password',
+      name: 'confirmNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
