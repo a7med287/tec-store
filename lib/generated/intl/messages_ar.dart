@@ -54,12 +54,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailOrPasswordIsNotCorrect": MessageLookupByLibrary.simpleMessage(
       "البريد الالكتروني أو كلمة المرور غير صحيحة",
     ),
+    "firstName": MessageLookupByLibrary.simpleMessage("الأسم الأول"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
     ),
+    "lastName": MessageLookupByLibrary.simpleMessage("الأسم الثاني"),
     "loginWithGoogle": MessageLookupByLibrary.simpleMessage(
       "تسجيل الدخول باستخدام جوجل",
     ),
+    "name": MessageLookupByLibrary.simpleMessage("الأسم"),
     "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
     "passwordRule": MessageLookupByLibrary.simpleMessage(

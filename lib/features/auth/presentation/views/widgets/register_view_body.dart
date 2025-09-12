@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tec_store/core/helpers/build_snak_bar.dart';
 import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/core/widgets/password_text_filed.dart';
-import 'package:tec_store/features/auth/presentation/cubits/sign_in_cubit/sign_in_cubit.dart';
-import 'package:tec_store/features/auth/presentation/views/widgets/or_divider.dart';
-import 'package:tec_store/features/auth/presentation/views/widgets/social_button.dart';
+import 'package:tec_store/features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'package:tec_store/generated/l10n.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
@@ -23,7 +22,7 @@ class _SignInViewBodyState extends State<RegisterViewBody> {
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  late String userName, email, password, confirmPassword;
+  late String firstName, lastName, email, password, confirmPassword;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -39,11 +38,20 @@ class _SignInViewBodyState extends State<RegisterViewBody> {
               const SizedBox(height: 28),
               CustomTextFormField(
                 onSaved: (value) {
-                  userName = value!;
+                  firstName = value!;
                 },
-                hintText: S.of(context).userName,
+                hintText: S.of(context).firstName,
                 iconData: Icons.person,
-                textInputType: TextInputType.emailAddress,
+                textInputType: TextInputType.name,
+              ),
+              const SizedBox(height: 16),
+              CustomTextFormField(
+                onSaved: (value) {
+                  lastName = value!;
+                },
+                hintText: S.of(context).lastName,
+                iconData: Icons.person,
+                textInputType: TextInputType.name,
               ),
               const SizedBox(height: 16),
               CustomTextFormField(
@@ -78,10 +86,18 @@ class _SignInViewBodyState extends State<RegisterViewBody> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    // context.read<SignInCubit>().signInWithEmailAndPassword(
-                    //   email,
-                    //   password,
-                    // );
+                   if(password == confirmPassword){
+                     formKey.currentState!.save();
+                     context.read<RegisterCubit>().signUpWithEmailAndPassword(
+                       firstName,
+                       lastName,
+                       email,
+                       password,
+                       confirmPassword,
+                     );
+                   }else{
+                     buildSnackBar(context, "password not match", isError: true);
+                   }
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
