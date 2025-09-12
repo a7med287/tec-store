@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:tec_store/features/auth/domain/entities/user_entity.dart';
 import 'package:tec_store/features/auth/domain/repos/auth_epo.dart';
 
@@ -12,17 +13,23 @@ class SignInCubit extends Cubit<SignInState> {
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     emit(SignInLoading());
     try {
-     var user =  await authRepo.signInWithEmailAndPassword(email, password);
+      var user = await authRepo.signInWithEmailAndPassword(email, password);
       emit(SignInSuccess(userEntity: user));
     } catch (e) {
-      if (e.toString().contains("Invalid credentials")) {
-        emit(SignInFailure(errorMessage: "اسم المستخدم أو كلمة المرور غير صحيحة"));
-      }else{
+      final errorMessage = e.toString();
+      if (errorMessage.contains("Invalid email or password") ||
+          errorMessage.contains("الوصول غير مصرح به")) {
         emit(
-          SignInFailure(errorMessage: "error in sign in cubit: ${e.toString()}"),
+          SignInFailure(
+            errorMessage:
+                Intl.getCurrentLocale() == "ar"
+                    ? "اسم المستخدم أو كلمة المرور غير صحيحة"
+                    : "email or password is not correct",
+          ),
         );
+      } else {
+        emit(SignInFailure(errorMessage: "حصل خطأ: $errorMessage"));
       }
-
     }
   }
 }

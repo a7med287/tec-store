@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tec_store/constants.dart';
+import 'package:tec_store/core/services/shared_prefrences_singletone.dart';
 import 'package:tec_store/core/utils/app_images1.dart';
+import 'package:tec_store/features/home/presentation/views/home_view.dart';
 import 'package:tec_store/generated/l10n.dart';
 
 import '../../../auth/presentation/views/sign_in_view.dart';
@@ -12,10 +15,14 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody> {
+  bool isLoggedIn = false;
   @override
   void initState() {
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, SignInView.routName);
+     // isLoggedIn = Prefs.getBool(kIsLoggedIn);
+      isLoggedIn
+          ? Navigator.pushReplacementNamed(context, HomeView.routName)
+          : Navigator.pushReplacementNamed(context, SignInView.routName);
     });
     super.initState();
   }

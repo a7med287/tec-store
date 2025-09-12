@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tec_store/features/auth/presentation/views/forget_password_view.dart';
 import 'package:tec_store/features/auth/presentation/views/register_view.dart';
 import 'package:tec_store/features/auth/presentation/views/verfiy_view.dart';
+import 'package:tec_store/features/home/presentation/views/home_view.dart';
 import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
 import '../../features/auth/presentation/views/sign_in_view.dart';
 import 'package:tec_store/features/auth/presentation/views/create_newPassword_view.dart';
@@ -24,6 +25,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const CreateNewPasswordView(),
       );
+    case HomeView.routName:
+      return MaterialPageRoute(builder: (context) => const HomeView());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

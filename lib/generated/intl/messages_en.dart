@@ -46,8 +46,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
       "Confirm New Password",
     ),
+    "close": MessageLookupByLibrary.simpleMessage("Close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailOrPasswordIsNotCorrect": MessageLookupByLibrary.simpleMessage(
+      "Email or Password is not correct",
+    ),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
     "loginWithGoogle": MessageLookupByLibrary.simpleMessage(
       "Login with google",

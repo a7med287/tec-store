@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:tec_store/constants.dart';
 import 'package:tec_store/core/helpers/build_snak_bar.dart';
+import 'package:tec_store/core/services/shared_prefrences_singletone.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/sign_in_view_body.dart';
+import 'package:tec_store/features/home/presentation/views/home_view.dart';
 
 import '../../cubits/sign_in_cubit/sign_in_cubit.dart';
 class SignInViewBodyBlockConsumer extends StatelessWidget {
@@ -16,6 +19,8 @@ class SignInViewBodyBlockConsumer extends StatelessWidget {
       listener: (context, state) {
         if(state is SignInSuccess){
           buildSnackBar(context, "Logged in Success");
+          Prefs.setBool(kIsLoggedIn, true );
+          Navigator.pushReplacementNamed(context, HomeView.routName);
         }
         if(state is SignInFailure){
           buildSnackBar(context, state.errorMessage , isError: true);

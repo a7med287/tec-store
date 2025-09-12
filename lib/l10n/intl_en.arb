@@ -21,5 +21,7 @@
   "passwordRule": "Must be at least 8 characters",
   "newPassword": "New Password",
   "CreateNewPassword": "Create New Password",
-  "confirmNewPassword": "Confirm New Password"
+  "confirmNewPassword": "Confirm New Password",
+  "emailOrPasswordIsNotCorrect" : "Email or Password is not correct",
+  "close":"Close"
 }
