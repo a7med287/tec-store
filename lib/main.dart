@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec_store/core/helpers/on_generate_routs.dart';
 import 'package:tec_store/core/services/get_it_service.dart';
-import 'package:tec_store/features/auth/presentation/views/sign_in_view.dart';
+import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
 import 'core/services/shared_prefrences_singletone.dart';
 import 'core/utils/app_colors.dart';
+import 'features/auth/domain/repos/auth_epo.dart';
+import 'features/auth/presentation/cubits/register_cubit/register_cubit.dart';
+import 'features/auth/presentation/cubits/verify_email_cubit/verify_email_cubit.dart';
 import 'generated/l10n.dart';
 
 void main() async {
@@ -19,26 +23,36 @@ class TecZone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => RegisterCubit(getIt<AuthRepo>()),
+        ),
+        BlocProvider(
+          create: (_) => VerifyEmailCubit(getIt<AuthRepo>()),
+        ),
       ],
-      supportedLocales: S.delegate.supportedLocales,
-      debugShowCheckedModeBanner: false,
+      child: MaterialApp(
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        debugShowCheckedModeBanner: false,
 
-      // switch between ar => (Arabic language) Or en => (English)
-      locale: Locale("en"),
+        // switch between ar => (Arabic language) Or en => (English)
+        locale: Locale("en"),
 
-      theme: ThemeData(
-        fontFamily: "Cairo",
-        primaryColor: AppColors.primaryColor,
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
+        theme: ThemeData(
+          fontFamily: "Cairo",
+          primaryColor: AppColors.primaryColor,
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
+        ),
+        onGenerateRoute: onGenerateRoute,
+        initialRoute: SplashView.routName,
       ),
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: SignInView.routName,
     );
   }
 }

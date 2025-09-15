@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import '../../../../../core/helpers/user_temp_data_helper.dart';
 import '../../../domain/entities/user_entity.dart';
 import '../../../domain/repos/auth_epo.dart';
 
@@ -27,6 +28,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         password,
         confirmPassword,
       );
+      UserTempData.email = user.email;
       emit(RegisterSuccess(userEntity: user));
     } catch (e) {
       final errorMessage = e.toString();

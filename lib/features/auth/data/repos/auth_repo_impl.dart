@@ -1,4 +1,3 @@
-
 import 'package:tec_store/core/services/api_services.dart';
 import 'package:tec_store/features/auth/data/models/user_model.dart';
 import 'package:tec_store/features/auth/domain/entities/user_entity.dart';
@@ -21,8 +20,6 @@ class AuthRepoImpl extends AuthRepo {
         "Accept": "application/json",
       },
     );
-
-
 
     if (response["statusCode"] != null && response["statusCode"] != 200) {
       throw Exception(response["message"] ?? "Login failed");
@@ -59,16 +56,21 @@ class AuthRepoImpl extends AuthRepo {
     if (response["success"] == false) {
       final errors = response["errors"];
       if (errors is List) {
-
         final errorMessage = errors.join("\n");
         throw Exception(errorMessage);
       }
       throw Exception(response["message"]);
     }
-    var user = UserModel.fromJson(response);
+    var user = UserModel(
+      id: "",
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+    );
+
     return user;
   }
-  
+
   @override
   Future<bool> forgetPassword(String email) async {
     var response = await apiServices.post(
@@ -89,6 +91,27 @@ class AuthRepoImpl extends AuthRepo {
         throw Exception(errorMessage);
       }
       throw Exception(response["message"]);
+    }
+  }
+
+  @override
+  Future<bool> confirmEmail(String email, String code) async {
+    var response = await apiServices.post(
+      "auth/confirm-email",
+      body: {"email": email, "code": code},
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": "application/json",
+      },
+    );
+
+    if (response["statusCode"] != null && response["statusCode"] != 200) {
+      throw Exception(response["message"] ?? "Login failed");
+    }
+    if (response["statusCode"] == 200) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

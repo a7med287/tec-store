@@ -25,6 +25,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const CreateNewPasswordView(),
       );
+    case VerifyView.routName:
+      return MaterialPageRoute(builder: (context) => const VerifyView());
     case HomeView.routName:
       return MaterialPageRoute(builder: (context) => const HomeView());
     default:

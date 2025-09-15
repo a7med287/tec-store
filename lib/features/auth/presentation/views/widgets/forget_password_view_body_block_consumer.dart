@@ -16,7 +16,7 @@ class ForgetPasswordViewBodyBlockConsumer extends StatelessWidget {
       listener: (context, state) {
         if(state is ForgetPasswordSuccess){
           buildSnackBar(context, "Email Sent Success");
-          Navigator.pushReplacementNamed(context, VerfiyView.routName);
+          Navigator.pushReplacementNamed(context, VerifyView.routName);
         }
         if(state is ForgetPasswordFailure){
           buildSnackBar(context, state.errorMessage , isError: true);
