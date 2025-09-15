@@ -14,7 +14,8 @@ class RegisterViewBodyBlockConsumer extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccess) {
-          buildSnackBar(context, "Registered Successful");
+          buildSnackBar(context, "Registered Successful, login");
+          Navigator.pop(context);
         }
         if (state is RegisterFailure) {
           buildSnackBar(context," ${state.errorMessage}",isError: true);

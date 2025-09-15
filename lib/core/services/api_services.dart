@@ -1,5 +1,6 @@
 import 'dart:convert';
-
+import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class ApiServices {
@@ -12,23 +13,31 @@ class ApiServices {
     Map<String, dynamic>? body,
     Map<String, String>? headers,
   }) async {
-    final response = await http.post(
+    try {
+      final response = await http.post(
+        Uri.parse('$baseUrl$endpoint'),
+        body: jsonEncode(body),
+        headers: headers,
+      );
 
-      Uri.parse('$baseUrl$endpoint'),
-      body: jsonEncode(body),
-      headers: headers ,
-    );
+      final responseBody = jsonDecode(response.body);
 
-    final responseBody = jsonDecode(response.body);
-
-    if (response.statusCode >= 200 && response.statusCode < 300) {
-      return responseBody;
-    } else {
-      return {
-        "success": false,
-        "statusCode": response.statusCode,
-        "message": responseBody  ?? "Unknown error",
-      };
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        return responseBody;
+      } else {
+        debugPrint(
+          "status code: ${response.statusCode} and body: $responseBody",
+        );
+        return {
+          "success": false,
+          "statusCode": response.statusCode,
+          "message": responseBody ?? "Unknown error",
+        };
+      }
+    } on SocketException {
+      throw Exception("لا يوجد اتصال بالإنترنت");
+    } catch (e) {
+      throw Exception("مشكلة في الاتصال بالخادم: $e");
     }
   }
 }

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:tec_store/core/services/api_services.dart';
 import 'package:tec_store/features/auth/data/models/user_model.dart';
 import 'package:tec_store/features/auth/domain/entities/user_entity.dart';
@@ -21,6 +21,12 @@ class AuthRepoImpl extends AuthRepo {
         "Accept": "application/json",
       },
     );
+
+
+
+    if (response["statusCode"] != null && response["statusCode"] != 200) {
+      throw Exception(response["message"] ?? "Login failed");
+    }
 
     var user = UserModel.fromJson(response);
 

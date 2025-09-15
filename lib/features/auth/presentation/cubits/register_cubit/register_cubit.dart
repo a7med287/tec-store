@@ -39,6 +39,16 @@ class RegisterCubit extends Cubit<RegisterState> {
                 : "Email is already registered",
           ),
         );
+      }else if (errorMessage.contains(
+        "Password must be at least 6 characters",
+      )) {
+        emit(
+          RegisterFailure(
+            errorMessage: Intl.getCurrentLocale() == "ar"
+                ? "كلمة المرور يجب أن تكون على الأقل 6 أحرف"
+                : "Password must be at least 6 characters",
+          ),
+        );
       } else if (errorMessage.contains(
         "Passwords must have at least one lowercase ('a'-'z')",
       )) {
@@ -59,12 +69,22 @@ class RegisterCubit extends Cubit<RegisterState> {
                 : "Password must have at least one uppercase letter ('A'-'Z')",
           ),
         );
-      } else {
+      } else if (errorMessage.contains(
+        "لا يوجد اتصال بالإنترنت",
+      )) {
         emit(
           RegisterFailure(
             errorMessage: Intl.getCurrentLocale() == "ar"
-                ? "حصل خطأ: $errorMessage"
-                : "An error occurred: $errorMessage",
+                ? " لا يوجد اتصال بالإنترنت"
+                : "No Internet connection",
+          ),
+        );
+      }else {
+        emit(
+          RegisterFailure(
+            errorMessage: Intl.getCurrentLocale() == "ar"
+                ? errorMessage
+                :  errorMessage,
           ),
         );
         debugPrint(errorMessage);
