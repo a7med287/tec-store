@@ -5,6 +5,7 @@ import 'package:tec_store/core/helpers/build_snak_bar.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/register_view_body.dart';
 
 import '../../cubits/register_cubit/register_cubit.dart';
+import '../verfiy_view.dart';
 
 class RegisterViewBodyBlockConsumer extends StatelessWidget {
   const RegisterViewBodyBlockConsumer({super.key});
@@ -14,11 +15,18 @@ class RegisterViewBodyBlockConsumer extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccess) {
-          buildSnackBar(context, "Registered Successful, login");
-          Navigator.pop(context);
+          buildSnackBar(
+            context,
+            "Registered Successful, Confirm email" ,
+          );
+          Navigator.pushNamed(
+            context,
+            VerifyView.routName,
+            arguments: state.userEntity.email ,
+          );
         }
         if (state is RegisterFailure) {
-          buildSnackBar(context," ${state.errorMessage}",isError: true);
+          buildSnackBar(context, " ${state.errorMessage}", isError: true);
         }
       },
       builder: (context, state) {

@@ -9,7 +9,7 @@ abstract class AuthRepo {
     String password,
     String confirmPassword,
   );
-  Future<bool> forgetPassword(
-    String email
-  ); 
+  Future<bool> forgetPassword(String email);
+
+  Future<void> confirmEmail(String emil, String code);
 }

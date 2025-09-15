@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class PinDigitsWidget extends StatelessWidget {
-  const PinDigitsWidget({super.key});
+  const PinDigitsWidget({super.key, required this.valueChangedCode});
 
+  final ValueChanged valueChangedCode;
   @override
   Widget build(BuildContext context) {
     return PinCodeTextField(
+      validator: (value) {
+        if(value!.isEmpty){
+          return "value required";
+        }
+        return null;
+      },
       appContext: context,
       length: 6,
       keyboardType: TextInputType.number,
@@ -26,9 +33,7 @@ class PinDigitsWidget extends StatelessWidget {
       onChanged: (value) {
         print(value);
       },
-      onCompleted: (value) {
-        print("Completed: $value");
-      },
+      onCompleted: valueChangedCode
     );
   }
 }
