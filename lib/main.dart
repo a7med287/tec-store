@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec_store/core/helpers/on_generate_routs.dart';
 import 'package:tec_store/core/services/get_it_service.dart';
+import 'package:tec_store/features/auth/presentation/views/forget_password_view.dart';
 import 'core/services/shared_prefrences_singletone.dart';
 import 'core/utils/app_colors.dart';
 import 'features/splash/presetation/views/splash_view.dart';
@@ -38,7 +39,7 @@ class TecZone extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
       ),
       onGenerateRoute: onGenerateRoute,
-      initialRoute: SplashView.routName,
+      initialRoute: ForgetPasswordView.routName,
     );
   }
 }

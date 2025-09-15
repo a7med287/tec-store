@@ -62,4 +62,27 @@ class AuthRepoImpl extends AuthRepo {
     var user = UserModel.fromJson(response);
     return user;
   }
+  
+  @override
+  Future<bool> forgetPassword(String email) async {
+    var response = await apiServices.post(
+      "auth/forgot-password",
+      body: {"email": email},
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": "application/json",
+      },
+    );
+
+    if (response["success"] == true) {
+      return true;
+    } else {
+      final errors = response["errors"];
+      if (errors is List) {
+        final errorMessage = errors.join("\n");
+        throw Exception(errorMessage);
+      }
+      throw Exception(response["message"]);
+    }
+  }
 }
