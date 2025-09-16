@@ -31,13 +31,13 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<UserEntity> signUpWithEmailAndPassword(
-    String firstName,
-    String lastName,
-    String email,
-    String password,
-    String confirmPassword,
-  ) async {
+  Future<bool> signUpWithEmailAndPassword(
+      String firstName,
+      String lastName,
+      String email,
+      String password,
+      String confirmPassword,
+      ) async {
     var response = await apiServices.post(
       "auth/register",
       body: {
@@ -53,7 +53,7 @@ class AuthRepoImpl extends AuthRepo {
       },
     );
 
-    if (response["success"] == false) {
+    if (response["isSuccess"] == false) {
       final errors = response["errors"];
       if (errors is List) {
         final errorMessage = errors.join("\n");
@@ -61,15 +61,11 @@ class AuthRepoImpl extends AuthRepo {
       }
       throw Exception(response["message"]);
     }
-    var user = UserModel(
-      id: "",
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-    );
 
-    return user;
+    // لو رجع نجاح
+    return true;
   }
+
 
   @override
   Future<bool> forgetPassword(String email) async {

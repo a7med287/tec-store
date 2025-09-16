@@ -22,7 +22,7 @@ class RegisterViewBodyBlockConsumer extends StatelessWidget {
           Navigator.pushNamed(
             context,
             VerifyView.routName,
-            arguments: state.userEntity.email ,
+            arguments: state.email
           );
         }
         if (state is RegisterFailure) {

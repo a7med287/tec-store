@@ -3,10 +3,11 @@ import 'package:tec_store/features/auth/presentation/views/widgets/verify_email_
 import 'package:tec_store/generated/l10n.dart';
 
 class VerifyView extends StatelessWidget {
-  const VerifyView({super.key});
+  const VerifyView({super.key, required this.email});
 
   static const String routName = "VerfiyView";
 
+  final String email;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,9 +18,7 @@ class VerifyView extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: VerifyEmailViewBodyBlockConsumer(
-        email: ModalRoute.of(context)!.settings.arguments.toString(),
-      ),
+      body: VerifyEmailViewBodyBlockConsumer(email: email),
     );
   }
 }
