@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tec_store/generated/l10n.dart';
 
-import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_theme.dart';
 
 class DidntReceiveAnyCodeWidget extends StatelessWidget {
   const DidntReceiveAnyCodeWidget({super.key});
@@ -26,7 +26,7 @@ class DidntReceiveAnyCodeWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: AppColors.primaryColor,
+              color: AppTheme.primary,
             ),
           ),
         ),

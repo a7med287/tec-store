@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Continue": MessageLookupByLibrary.simpleMessage("Continue"),
+    "CreateNewPassword": MessageLookupByLibrary.simpleMessage(
+      "Create New Password",
+    ),
     "DidntReceiveAnyCode": MessageLookupByLibrary.simpleMessage(
       "Didn\'t receive any code?",
     ),
@@ -41,6 +44,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Verify your email to continue",
     ),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
+      "Confirm New Password",
+    ),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailOrPasswordIsNotCorrect": MessageLookupByLibrary.simpleMessage(
@@ -53,7 +59,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "Login with google",
     ),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordRule": MessageLookupByLibrary.simpleMessage(
+      "Must be at least 8 characters",
+    ),
     "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
