@@ -13,4 +13,6 @@ abstract class AuthRepo {
 
   Future<void> confirmEmail(String emil, String code);
 
+  Future<bool> resendVerificationCode(String email, int verificationType);
+
 }

@@ -18,7 +18,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   ) async {
     emit(RegisterLoading());
     try {
-      var user = await authRepo.signUpWithEmailAndPassword(
+      await authRepo.signUpWithEmailAndPassword(
         firstName,
         lastName,
         email,

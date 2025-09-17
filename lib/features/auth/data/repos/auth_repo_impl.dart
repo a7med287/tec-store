@@ -113,5 +113,30 @@ class AuthRepoImpl extends AuthRepo {
       return false;
     }
   }
+  
+  @override
+  Future<bool> resendVerificationCode(String email, int verificationType) async {
+    var response = await apiServices.post(
+      "auth/resend-verification-code",
+      body: {
+        "email": email,
+        "verificationType": verificationType,
+      },
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": "application/json",
+      },
+    );
 
+    if (response["success"] == true) {
+      return true;
+    } else {
+      final errors = response["errors"];
+      if (errors is List) {
+        final errorMessage = errors.join("\n");
+        throw Exception(errorMessage);
+      }
+      throw Exception(response["message"] ?? "Failed to resend verification code");
+    }
+  }
 }
