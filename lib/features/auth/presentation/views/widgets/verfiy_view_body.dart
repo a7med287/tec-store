@@ -66,7 +66,7 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
                 },
               ),
               const SizedBox(height: 26),
-              DidntReceiveAnyCodeWidget(),
+              DidntReceiveAnyCodeWidget(email: widget.email,),
             ],
           ),
         ),
