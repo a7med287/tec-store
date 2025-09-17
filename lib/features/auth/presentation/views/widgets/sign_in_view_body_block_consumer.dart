@@ -12,6 +12,7 @@ import '../../cubits/sign_in_cubit/sign_in_cubit.dart';
 class SignInViewBodyBlockConsumer extends StatelessWidget {
   const SignInViewBodyBlockConsumer({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInCubit, SignInState>(
@@ -19,12 +20,11 @@ class SignInViewBodyBlockConsumer extends StatelessWidget {
         if (state is SignInSuccess) {
           buildSnackBar(
             context,
-            state.userEntity.isConfirmed
-                ? "Logged in Success"
-                : "Logged in Success, email not confirm",
+                 "Logged in Success"
           );
           Prefs.setBool(kIsLoggedIn, true);
-
+          // final savedToken = Prefs.getString(tokenKey);
+          // debugPrint("token: $savedToken");
           Navigator.pushReplacementNamed(context, HomeView.routName);
         }
         if (state is SignInFailure) {

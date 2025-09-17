@@ -1,4 +1,5 @@
 import 'package:tec_store/core/services/api_services.dart';
+import 'package:tec_store/core/services/database_services.dart';
 import 'package:tec_store/features/auth/data/models/user_model.dart';
 import 'package:tec_store/features/auth/domain/entities/user_entity.dart';
 import 'package:tec_store/features/auth/domain/repos/auth_epo.dart';
@@ -6,7 +7,9 @@ import 'package:tec_store/features/auth/domain/repos/auth_epo.dart';
 class AuthRepoImpl extends AuthRepo {
   final ApiServices apiServices;
 
-  AuthRepoImpl({required this.apiServices});
+ final DatabaseServices databaseServices;
+
+  AuthRepoImpl(this.databaseServices, {required this.apiServices});
   @override
   Future<UserEntity> signInWithEmailAndPassword(
     String email,
@@ -25,6 +28,9 @@ class AuthRepoImpl extends AuthRepo {
       throw Exception(response["message"] ?? "Login failed");
     }
 
+    final token = response["data"]["token"];
+    await databaseServices.saveToken(token);
+
     var user = UserModel.fromJson(response);
 
     return user;
@@ -32,12 +38,12 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<bool> signUpWithEmailAndPassword(
-      String firstName,
-      String lastName,
-      String email,
-      String password,
-      String confirmPassword,
-      ) async {
+    String firstName,
+    String lastName,
+    String email,
+    String password,
+    String confirmPassword,
+  ) async {
     var response = await apiServices.post(
       "auth/register",
       body: {
@@ -61,11 +67,8 @@ class AuthRepoImpl extends AuthRepo {
       }
       throw Exception(response["message"]);
     }
-
-    // لو رجع نجاح
     return true;
   }
-
 
   @override
   Future<bool> forgetPassword(String email) async {
@@ -110,4 +113,5 @@ class AuthRepoImpl extends AuthRepo {
       return false;
     }
   }
+
 }
