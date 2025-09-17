@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tec_store/core/services/api_services.dart';
-import 'package:tec_store/core/services/database_services.dart';
-import 'package:tec_store/core/services/get_it_service.dart';
-import 'package:tec_store/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:tec_store/generated/l10n.dart';
 
+import '../../../../../core/services/api_services.dart';
+import '../../../../../core/services/database_services.dart';
+import '../../../../../core/services/get_it_service.dart';
 import '../../../../../core/utils/app_theme.dart';
+import '../../../data/repos/auth_repo_impl.dart';
 
 class DidntReceiveAnyCodeWidget extends StatelessWidget {
   const DidntReceiveAnyCodeWidget({super.key, required this.email});
@@ -24,9 +24,9 @@ class DidntReceiveAnyCodeWidget extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {
+          onPressed: () async {
             try {
-              AuthRepoImpl(
+              await AuthRepoImpl(
                 getIt.get<DatabaseServices>(),
                 apiServices: getIt.get<ApiServices>(),
               ).resendVerificationCode(email, 0);

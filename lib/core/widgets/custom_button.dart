@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tec_store/features/auth/presentation/views/create_newPassword_view.dart';
 import '../utils/app_theme.dart';
 
 class CustomButton extends StatelessWidget {
@@ -9,9 +8,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // Navigator.pushNamed(context, VerfiyView.routName);
-      },
+      onTap: onTap,
       child: Container(
         width: double.infinity,
         height: 55,

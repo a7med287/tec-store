@@ -6,8 +6,7 @@ import 'package:tec_store/features/auth/domain/repos/auth_epo.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final ApiServices apiServices;
-
- final DatabaseServices databaseServices;
+  final DatabaseServices databaseServices;
 
   AuthRepoImpl(this.databaseServices, {required this.apiServices});
   @override
@@ -58,16 +57,15 @@ class AuthRepoImpl extends AuthRepo {
         "Accept": "application/json",
       },
     );
-
-    if (response["isSuccess"] == false) {
+    if (response["isSuccess"] == true && response["statusCode"] == 200) {
+      return true;
+    } else {
       final errors = response["errors"];
       if (errors is List) {
-        final errorMessage = errors.join("\n");
-        throw Exception(errorMessage);
+        throw Exception(errors.join("\n"));
       }
       throw Exception(response["message"]);
     }
-    return true;
   }
 
   @override
@@ -113,15 +111,15 @@ class AuthRepoImpl extends AuthRepo {
       return false;
     }
   }
-  
+
   @override
-  Future<bool> resendVerificationCode(String email, int verificationType) async {
+  Future<bool> resendVerificationCode(
+    String email,
+    int verificationType,
+  ) async {
     var response = await apiServices.post(
       "auth/resend-verification-code",
-      body: {
-        "email": email,
-        "verificationType": verificationType,
-      },
+      body: {"email": email, "verificationType": verificationType},
       headers: {
         "Content-Type": 'application/json',
         "Accept": "application/json",
@@ -136,7 +134,9 @@ class AuthRepoImpl extends AuthRepo {
         final errorMessage = errors.join("\n");
         throw Exception(errorMessage);
       }
-      throw Exception(response["message"] ?? "Failed to resend verification code");
+      throw Exception(
+        response["message"] ?? "Failed to resend verification code",
+      );
     }
   }
 }
