@@ -5,6 +5,7 @@ import 'package:tec_store/features/auth/presentation/views/verfiy_view.dart';
 import 'package:tec_store/features/home/presentation/views/home_view.dart';
 import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
 import '../../features/auth/presentation/views/sign_in_view.dart';
+import 'package:tec_store/features/auth/presentation/views/create_newPassword_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -17,6 +18,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case ForgetPasswordView.routName:
       return MaterialPageRoute(
         builder: (context) => const ForgetPasswordView(),
+      );
+    case CreateNewPasswordView.routName:
+      return MaterialPageRoute(
+        builder: (context) => const CreateNewPasswordView(),
       );
     case VerifyView.routName:
       final email = settings.arguments as String;

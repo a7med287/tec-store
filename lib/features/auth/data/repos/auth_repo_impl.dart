@@ -59,15 +59,15 @@ class AuthRepoImpl extends AuthRepo {
       },
     );
 
-    if (response["isSuccess"] == true && response["statusCode"] == 200) {
-      return true;
-    } else {
+    if (response["isSuccess"] == false) {
       final errors = response["errors"];
       if (errors is List) {
-        throw Exception(errors.join("\n"));
+        final errorMessage = errors.join("\n");
+        throw Exception(errorMessage);
       }
       throw Exception(response["message"]);
     }
+    return true;
   }
 
   @override

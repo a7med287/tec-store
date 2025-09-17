@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Continue": MessageLookupByLibrary.simpleMessage("استمر"),
+    "CreateNewPassword": MessageLookupByLibrary.simpleMessage(
+      "إنشاء كلمة مرور جديدة",
+    ),
     "DidntReceiveAnyCode": MessageLookupByLibrary.simpleMessage(
       "لم تستلم أي رمز؟",
     ),
@@ -41,6 +44,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "تحقق من بريدك الإلكتروني للمتابعة",
     ),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
+    "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور الجديدة",
+    ),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
@@ -57,7 +63,11 @@ class MessageLookup extends MessageLookupByLibrary {
       "تسجيل الدخول باستخدام جوجل",
     ),
     "name": MessageLookupByLibrary.simpleMessage("الأسم"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
+    "passwordRule": MessageLookupByLibrary.simpleMessage(
+      "يجب أن يتكون من 8 أحرف على الأقل",
+    ),
     "sendEmail": MessageLookupByLibrary.simpleMessage("ارسل البريد الالكتروني"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
