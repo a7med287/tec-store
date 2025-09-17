@@ -25,12 +25,8 @@ class TecZone extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (_) => RegisterCubit(getIt<AuthRepo>()),
-        ),
-        BlocProvider(
-          create: (_) => VerifyEmailCubit(getIt<AuthRepo>()),
-        ),
+        BlocProvider(create: (_) => RegisterCubit(getIt<AuthRepo>())),
+        BlocProvider(create: (_) => VerifyEmailCubit(getIt<AuthRepo>())),
       ],
       child: MaterialApp(
         localizationsDelegates: [

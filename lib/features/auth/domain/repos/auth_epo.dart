@@ -12,4 +12,5 @@ abstract class AuthRepo {
   Future<bool> forgetPassword(String email);
 
   Future<void> confirmEmail(String emil, String code);
+
 }
