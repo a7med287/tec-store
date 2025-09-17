@@ -6,41 +6,40 @@ class CustomTextFormField extends StatelessWidget {
     this.onSaved,
     required this.hintText,
     required this.iconData,
-    required this.textInputType,
-    this.isPassword = false,
+    required this.textInputType,  this.isPassword  = false ,
   });
 
   final void Function(String?)? onSaved;
   final String hintText;
   final IconData iconData;
   final TextInputType textInputType;
-  final bool isPassword;
+  final bool isPassword ;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) {
-        if (value!.isEmpty) {
+        if(value!.isEmpty){
           return "this is required";
         }
         return null;
       },
-      obscureText: isPassword,
+      obscureText: isPassword ,
       onSaved: onSaved,
       keyboardType: textInputType,
       decoration: InputDecoration(
         prefixIcon: Icon(iconData),
         hintText: hintText,
-        border: buildOutlineInputBorder(Colors.grey),
+        border: buildOutlineInputBorder(),
         enabledBorder: buildOutlineInputBorder(),
-        focusedBorder: buildOutlineInputBorder(Colors.blue),
+        focusedBorder: buildOutlineInputBorder(),
       ),
     );
   }
 
-  OutlineInputBorder buildOutlineInputBorder([Color? color]) {
+  OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
-      borderSide: BorderSide(color: color ?? Colors.grey),
+      borderSide: BorderSide(color: Colors.grey),
     );
   }
 }

@@ -24,7 +24,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) {
-        if (value!.isEmpty) {
+        if(value!.isEmpty){
           return "this is required";
         }
         return null;
@@ -47,17 +47,17 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
           ),
         ),
         hintText: widget.hintText,
-        border: buildOutlineInputBorder(Colors.grey),
+        border: buildOutlineInputBorder(),
         enabledBorder: buildOutlineInputBorder(),
-        focusedBorder: buildOutlineInputBorder(Colors.blue),
+        focusedBorder: buildOutlineInputBorder(),
       ),
     );
   }
 
-  OutlineInputBorder buildOutlineInputBorder([Color? color]) {
+  OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
-      borderSide: BorderSide(color: color ?? Colors.grey),
+      borderSide: BorderSide(color: Colors.grey),
     );
   }
 }

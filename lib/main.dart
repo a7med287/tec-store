@@ -5,11 +5,10 @@ import 'package:tec_store/core/helpers/on_generate_routs.dart';
 import 'package:tec_store/core/services/get_it_service.dart';
 import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
 import 'core/services/shared_prefrences_singletone.dart';
-import 'core/utils/app_theme.dart';
+import 'core/utils/app_colors.dart';
 import 'features/auth/domain/repos/auth_epo.dart';
 import 'features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'features/auth/presentation/cubits/verify_email_cubit/verify_email_cubit.dart';
-import 'features/home/presentation/views/home_view.dart';
 import 'generated/l10n.dart';
 
 void main() async {
@@ -44,11 +43,11 @@ class TecZone extends StatelessWidget {
 
         theme: ThemeData(
           fontFamily: "Cairo",
-          primaryColor: AppTheme.primary,
-          colorScheme: ColorScheme.fromSeed(seedColor: AppTheme.primary),
+          primaryColor: AppColors.primaryColor,
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         ),
         onGenerateRoute: onGenerateRoute,
-        initialRoute: HomeView.routName,
+        initialRoute: SplashView.routName,
       ),
     );
   }
