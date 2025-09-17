@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_theme.dart';
+import 'package:tec_store/core/utils/app_colors.dart';
+
 import '../../../../generated/l10n.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,26 +10,26 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body:  Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               S.of(context).welcome,
               style: TextStyle(
-                color: AppTheme.primary,
+                color: AppColors.primaryColor,
                 fontSize: 45,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            Text(
+            const Text(
               "Home",
               style: TextStyle(
-                color: AppTheme.secondary,
+                color: AppColors.lightPrimaryColor,
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
-                // fontFamily: "fontLogo",
+               // fontFamily: "fontLogo",
                 letterSpacing: 2,
               ),
             ),

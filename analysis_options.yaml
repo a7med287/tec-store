@@ -1,6 +1,3 @@
-analyzer:
-  errors:
-    lines_longer_than_80_chars: ignore
 # This file configures the analyzer, which statically analyzes Dart code to
 # check for errors, warnings, and lints.
 #

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tec_store/features/auth/presentation/views/register_view.dart';
 import 'package:tec_store/generated/l10n.dart';
-import '../../../../../core/utils/app_theme.dart';
+
+import '../../../../../core/utils/app_colors.dart';
 
 class DontHaveAnAccountWidget extends StatelessWidget {
   const DontHaveAnAccountWidget({super.key});
@@ -28,7 +29,7 @@ class DontHaveAnAccountWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: AppTheme.primary,
+              color: AppColors.primaryColor,
             ),
           ),
         ),
