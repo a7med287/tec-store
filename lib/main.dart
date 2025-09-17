@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec_store/core/helpers/on_generate_routs.dart';
 import 'package:tec_store/core/services/get_it_service.dart';
-import 'package:tec_store/features/auth/presentation/cubits/resend_verification_code_cubit/resend_verification_code_cubit.dart';
 import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
 import 'core/services/shared_prefrences_singletone.dart';
 import 'core/utils/app_theme.dart';
@@ -29,7 +28,6 @@ class TecZone extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => RegisterCubit(getIt<AuthRepo>())),
         BlocProvider(create: (_) => VerifyEmailCubit(getIt<AuthRepo>())),
-        BlocProvider(create: (_) => ResendVerificationCubit(getIt<AuthRepo>())),  
       ],
       child: MaterialApp(
         localizationsDelegates: [
@@ -50,7 +48,7 @@ class TecZone extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppTheme.primary),
         ),
         onGenerateRoute: onGenerateRoute,
-        initialRoute: HomeView.routName,
+        initialRoute: SplashView.routName,
       ),
     );
   }
