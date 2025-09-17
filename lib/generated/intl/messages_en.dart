@@ -43,10 +43,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "VerifyYourEmailtoContinue": MessageLookupByLibrary.simpleMessage(
       "Verify your email to continue",
     ),
+    "close": MessageLookupByLibrary.simpleMessage("Close"),
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
       "Confirm New Password",
     ),
-    "close": MessageLookupByLibrary.simpleMessage("Close"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailOrPasswordIsNotCorrect": MessageLookupByLibrary.simpleMessage(
@@ -58,8 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginWithGoogle": MessageLookupByLibrary.simpleMessage(
       "Login with google",
     ),
-    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
+    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordRule": MessageLookupByLibrary.simpleMessage(
       "Must be at least 8 characters",

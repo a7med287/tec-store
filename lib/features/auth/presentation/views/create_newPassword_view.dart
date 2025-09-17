@@ -14,18 +14,15 @@ class CreateNewPasswordView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SignInCubit(getIt.get<AuthRepo>()),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            S.of(context).CreateNewPassword,
-            style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-          ),
-          centerTitle: true,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          S.of(context).CreateNewPassword,
+          style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
         ),
-        body: CreateNewPasswordBody(),
+        centerTitle: true,
       ),
+      body: CreateNewPasswordBody(),
     );
   }
 }
