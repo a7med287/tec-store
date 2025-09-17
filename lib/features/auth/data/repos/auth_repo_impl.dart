@@ -1,4 +1,5 @@
 import 'package:tec_store/core/services/api_services.dart';
+import 'package:tec_store/core/services/database_services.dart';
 import 'package:tec_store/features/auth/data/models/user_model.dart';
 import 'package:tec_store/features/auth/domain/entities/user_entity.dart';
 import 'package:tec_store/features/auth/domain/repos/auth_epo.dart';
@@ -6,7 +7,9 @@ import 'package:tec_store/features/auth/domain/repos/auth_epo.dart';
 class AuthRepoImpl extends AuthRepo {
   final ApiServices apiServices;
 
-  AuthRepoImpl({required this.apiServices});
+ final DatabaseServices databaseServices;
+
+  AuthRepoImpl(this.databaseServices, {required this.apiServices});
   @override
   Future<UserEntity> signInWithEmailAndPassword(
     String email,
@@ -25,13 +28,16 @@ class AuthRepoImpl extends AuthRepo {
       throw Exception(response["message"] ?? "Login failed");
     }
 
+    final token = response["data"]["token"];
+    await databaseServices.saveToken(token);
+
     var user = UserModel.fromJson(response);
 
     return user;
   }
 
   @override
-  Future<UserEntity> signUpWithEmailAndPassword(
+  Future<bool> signUpWithEmailAndPassword(
     String firstName,
     String lastName,
     String email,
@@ -53,7 +59,7 @@ class AuthRepoImpl extends AuthRepo {
       },
     );
 
-    if (response["success"] == false) {
+    if (response["isSuccess"] == false) {
       final errors = response["errors"];
       if (errors is List) {
         final errorMessage = errors.join("\n");
@@ -61,14 +67,7 @@ class AuthRepoImpl extends AuthRepo {
       }
       throw Exception(response["message"]);
     }
-    var user = UserModel(
-      id: "",
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-    );
-
-    return user;
+    return true;
   }
 
   @override
@@ -114,4 +113,5 @@ class AuthRepoImpl extends AuthRepo {
       return false;
     }
   }
+
 }

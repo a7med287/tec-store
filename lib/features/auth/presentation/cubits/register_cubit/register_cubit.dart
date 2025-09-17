@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import '../../../../../core/helpers/user_temp_data_helper.dart';
-import '../../../domain/entities/user_entity.dart';
 import '../../../domain/repos/auth_epo.dart';
-
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
@@ -28,8 +25,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         password,
         confirmPassword,
       );
-      UserTempData.email = user.email;
-      emit(RegisterSuccess(userEntity: user));
+      emit(RegisterSuccess(email: email ));
     } catch (e) {
       final errorMessage = e.toString();
       if (errorMessage.contains("Email is already registered") ||

@@ -56,7 +56,7 @@ class _SignInViewBodyState extends State<RegisterViewBody> {
               const SizedBox(height: 16),
               CustomTextFormField(
                 onSaved: (value) {
-                  email = value!;
+                  email = value!.trim();
                 },
                 hintText: S.of(context).email,
                 iconData: Icons.email_outlined,
@@ -86,22 +86,28 @@ class _SignInViewBodyState extends State<RegisterViewBody> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                   if(password == confirmPassword){
-                     formKey.currentState!.save();
-                     context.read<RegisterCubit>().signUpWithEmailAndPassword(
-                       firstName,
-                       lastName,
-                       email,
-                       password,
-                       confirmPassword,
-                     );
-                   }else{
-                     buildSnackBar(context, "password not match", isError: true);
-                   }
+                    if (password == confirmPassword) {
+                      formKey.currentState!.save();
+                      context.read<RegisterCubit>().signUpWithEmailAndPassword(
+                        firstName,
+                        lastName,
+                        email.trim(),
+                        password,
+                        confirmPassword,
+                      );
+                    } else {
+                      buildSnackBar(
+                        context,
+                        "password not match",
+                        isError: true,
+                      );
+                    }
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
                   }
+
+                  debugPrint("email in register: $email");
                 },
               ),
             ],

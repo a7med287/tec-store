@@ -5,7 +5,6 @@ import 'package:tec_store/features/auth/presentation/cubits/verify_email_cubit/v
 import 'package:tec_store/features/auth/presentation/views/widgets/didnt_receive_any_code_widget.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/pin_digits_widget.dart';
 import 'package:tec_store/generated/l10n.dart';
-import '../../../../../core/helpers/user_temp_data_helper.dart';
 import '../../../../../core/widgets/custom_button.dart';
 
 class VerifyViewBody extends StatefulWidget {
@@ -62,7 +61,7 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
                     setState(() {});
                   }
                   debugPrint(
-                    "email:  ${UserTempData.email ?? " null email"}  , code: $code",
+                    "email:${widget.email}, code: $code",
                   );
                 },
               ),

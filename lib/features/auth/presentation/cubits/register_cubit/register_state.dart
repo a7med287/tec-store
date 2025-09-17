@@ -7,9 +7,9 @@ final class RegisterInitial extends RegisterState {}
 final class RegisterLoading extends RegisterState {}
 
 final class RegisterSuccess extends RegisterState {
-  final UserEntity userEntity;
+  final String email;
 
-  RegisterSuccess({required this.userEntity});
+  RegisterSuccess({required this.email});
 }
 
 final class RegisterFailure extends RegisterState {

@@ -20,13 +20,13 @@ class VerifyEmailViewBodyBlockConsumer extends StatelessWidget {
           Navigator.pushReplacementNamed(context, HomeView.routName);
         }
         if (state is VerifyEmailFailure) {
-          buildSnackBar(context, state.errorMessage ,isError: true);
+          buildSnackBar(context, state.errorMessage, isError: true);
         }
       },
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is VerifyEmailLoading ? true : false,
-          child: VerifyViewBody(email: email ,),
+          child: VerifyViewBody(email: email.trim()),
         );
       },
     );
