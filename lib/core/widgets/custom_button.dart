@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tec_store/features/auth/presentation/views/create_newPassword_view.dart';
-import '../utils/app_colors.dart';
+import '../utils/app_theme.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, this.onTap, required this.text});
@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
         width: double.infinity,
         height: 55,
         decoration: BoxDecoration(
-          color: AppColors.primaryColor,
+          color: AppTheme.primary,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
