@@ -26,5 +26,9 @@
   "CreateNewPassword": "Create New Password",
   "confirmNewPassword": "Confirm New Password",
   "emailOrPasswordIsNotCorrect" : "Email or Password is not correct",
-  "close":"Close"
+  "close":"Close",
+  "search": "Search laptops, accessories...",
+  "featuredProducts" : "Featured Products",
+  "VeiwAll" : "Veiw All",
+  "Popular" : "Popular"
 }

@@ -263,6 +263,36 @@ class S {
   String get close {
     return Intl.message('Close', name: 'close', desc: '', args: []);
   }
+
+  /// `Search laptops, accessories...`
+  String get search {
+    return Intl.message(
+      'Search laptops, accessories...',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Featured Products`
+  String get featuredProducts {
+    return Intl.message(
+      'Featured Products',
+      name: 'featuredProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Veiw All`
+  String get VeiwAll {
+    return Intl.message('Veiw All', name: 'VeiwAll', desc: '', args: []);
+  }
+
+  /// `Popular`
+  String get Popular {
+    return Intl.message('Popular', name: 'Popular', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

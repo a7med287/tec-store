@@ -1,0 +1,160 @@
+import 'package:flutter/material.dart';
+import '../../generated/l10n.dart';
+import '../utils/app_theme.dart';
+
+class CardWidget extends StatelessWidget {
+  final String title;
+  final String imageUrl;
+  final double rating;
+  final int reviewCount;
+  final double price;
+  final double? oldPrice;
+  final bool isPopular;
+  final VoidCallback onAddToCart;
+  final VoidCallback onFavorite;
+  final VoidCallback onTap;
+
+  const CardWidget({
+    super.key,
+    required this.title,
+    required this.imageUrl,
+    required this.rating,
+    required this.reviewCount,
+    required this.price,
+    this.oldPrice,
+    this.isPopular = true,
+    required this.onAddToCart,
+    required this.onFavorite,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: AppTheme.surface,
+      shadowColor: Colors.black12,
+      margin: EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 5,
+      clipBehavior: Clip.antiAlias,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12.0),
+            child: Stack(
+              children: [
+                Ink.image(
+                  image: AssetImage(imageUrl),
+                  width: double.infinity,
+                  height: 200,
+                  fit: BoxFit.cover,
+                  child: InkWell(onTap: onTap),
+                ),
+                Positioned(
+                  top: 4,
+                  left: 4,
+                  right: 4,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Left Item: The "Popular/New" badge
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: isPopular ? Colors.orange : Colors.green,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          isPopular ? S.of(context).Popular : "New",
+                          style: AppTheme.body.copyWith(color: Colors.white),
+                        ),
+                      ),
+
+                      // Right Item: The favorite button
+                      IconButton(
+                        onPressed: onFavorite,
+                        icon: const Icon(
+                          Icons.favorite_border,
+                          color: Colors.white,
+                        ),
+                        style: IconButton.styleFrom(
+                          backgroundColor: Colors.black12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 8),
+          Padding(
+            padding: EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: AppTheme.heading2.copyWith(
+                    color: AppTheme.textPrimary,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    const Icon(Icons.star, color: Colors.yellow, size: 16),
+                    const SizedBox(width: 4),
+                    Text(
+                      "$rating ($reviewCount)",
+                      style: AppTheme.body.copyWith(color: Colors.grey),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    Text(
+                      '\$$price',
+                      style: AppTheme.body.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: AppTheme.secondary,
+                      ),
+                    ),
+                    if (oldPrice != null) ...[
+                      const SizedBox(width: 8),
+                      Text(
+                        '\$$oldPrice',
+                        style: AppTheme.body.copyWith(
+                          decoration: TextDecoration.lineThrough,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                    const Spacer(),
+                    IconButton(
+                      onPressed: onAddToCart,
+                      style: IconButton.styleFrom(
+                        backgroundColor: AppTheme.secondary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      icon: const Icon(
+                        Icons.add_shopping_cart,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -14,6 +14,7 @@ class AppTheme {
   static const Color error =
       Colors.red; // ✋ لون الأخطاء (مثلاً Validation Error)
 
+  // Text Color
   static const Color textPrimary = Color(
     0xFF333333,
   ); // ✋ النصوص الرئيسية (Body Text, Titles)

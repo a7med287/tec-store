@@ -39,7 +39,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "PleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter your email to receive OTP to create a new password via email",
     ),
+    "Popular": MessageLookupByLibrary.simpleMessage("Popular"),
     "ResendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "VeiwAll": MessageLookupByLibrary.simpleMessage("Veiw All"),
     "VerifyYourEmailtoContinue": MessageLookupByLibrary.simpleMessage(
       "Verify your email to continue",
     ),
@@ -52,6 +54,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailOrPasswordIsNotCorrect": MessageLookupByLibrary.simpleMessage(
       "Email or Password is not correct",
     ),
+    "featuredProducts": MessageLookupByLibrary.simpleMessage(
+      "Featured Products",
+    ),
     "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password ?"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
@@ -63,6 +68,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordRule": MessageLookupByLibrary.simpleMessage(
       "Must be at least 8 characters",
+    ),
+    "search": MessageLookupByLibrary.simpleMessage(
+      "Search laptops, accessories...",
     ),
     "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),

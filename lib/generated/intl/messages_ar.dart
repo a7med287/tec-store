@@ -39,7 +39,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "PleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال بريدك الإلكتروني لتلقي OTP لإنشاء كلمة مرور جديدة عبر البريد الإلكتروني",
     ),
+    "Popular": MessageLookupByLibrary.simpleMessage("الأكثر مبيعا"),
     "ResendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
+    "VeiwAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "VerifyYourEmailtoContinue": MessageLookupByLibrary.simpleMessage(
       "تحقق من بريدك الإلكتروني للمتابعة",
     ),
@@ -54,6 +56,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailOrPasswordIsNotCorrect": MessageLookupByLibrary.simpleMessage(
       "البريد الالكتروني أو كلمة المرور غير صحيحة",
     ),
+    "featuredProducts": MessageLookupByLibrary.simpleMessage(
+      "المنتجات المميزة",
+    ),
     "firstName": MessageLookupByLibrary.simpleMessage("الأسم الأول"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
       "هل نسيت كلمة المرور؟",
@@ -67,6 +72,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
     "passwordRule": MessageLookupByLibrary.simpleMessage(
       "يجب أن يتكون من 8 أحرف على الأقل",
+    ),
+    "search": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن أجهزة اللابتوب، الإكسسوارات...",
     ),
     "sendEmail": MessageLookupByLibrary.simpleMessage("ارسل البريد الالكتروني"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
