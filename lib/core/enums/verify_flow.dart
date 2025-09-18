@@ -1,0 +1,4 @@
+enum VerifyFlow {
+  register,
+  forgotPassword,
+}

@@ -16,7 +16,7 @@ class PinDigitsWidget extends StatelessWidget {
       },
       appContext: context,
       length: 6,
-      keyboardType: TextInputType.number,
+      keyboardType: TextInputType.text,
       animationType: AnimationType.fade,
       pinTheme: PinTheme(
         shape: PinCodeFieldShape.box,

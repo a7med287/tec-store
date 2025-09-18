@@ -1,4 +1,5 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tec_store/features/auth/domain/repos/auth_epo.dart';
 
 part 'forget_password_state.dart';
@@ -11,14 +12,12 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
   Future<void> forgetPassword(String email) async {
     emit(ForgetPasswordLoading());
     try {
-      final success = await authRepo.forgetPassword(email);
-      if (success) {
-        emit(ForgetPasswordSuccess("OTP sent to your email."));
-      } else {
-        emit(ForgetPasswordFailure("Failed to send OTP."));
-      }
+        await authRepo.forgetPassword(email);
+        emit(ForgetPasswordSuccess( email: email ));
     } catch (e) {
-      emit(ForgetPasswordFailure(e.toString().replaceAll("Exception: ", "")));
+      final errorMessage = e.toString();
+      emit(ForgetPasswordFailure("error in forgot cubit $errorMessage"));
+      debugPrint("error in forgot cubit  $errorMessage");
     }
   }
 }

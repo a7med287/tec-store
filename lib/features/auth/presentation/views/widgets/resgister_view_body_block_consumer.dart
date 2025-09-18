@@ -4,6 +4,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:tec_store/core/helpers/build_snak_bar.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/register_view_body.dart';
 
+import '../../../../../core/enums/verify_flow.dart';
 import '../../cubits/register_cubit/register_cubit.dart';
 import '../verfiy_view.dart';
 
@@ -22,7 +23,10 @@ class RegisterViewBodyBlockConsumer extends StatelessWidget {
           Navigator.pushNamed(
             context,
             VerifyView.routName,
-            arguments: state.email
+            arguments:  {
+              'email': state.email,
+              'flow': VerifyFlow.register,
+            },
           );
         }
         if (state is RegisterFailure) {

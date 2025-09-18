@@ -7,6 +7,8 @@ import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
 import '../../features/auth/presentation/views/sign_in_view.dart';
 import 'package:tec_store/features/auth/presentation/views/create_newPassword_view.dart';
 
+import '../enums/verify_flow.dart';
+
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case SplashView.routName:
@@ -24,8 +26,14 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (context) => const CreateNewPasswordView(),
       );
     case VerifyView.routName:
-      final email = settings.arguments as String;
-      return MaterialPageRoute(builder: (context) => VerifyView(email: email));
+      final args = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder:
+            (context) => VerifyView(
+              email: args['email'],
+              flow: args['flow'] as VerifyFlow,
+            ),
+      );
     case HomeView.routName:
       return MaterialPageRoute(builder: (context) => const HomeView());
     default:
