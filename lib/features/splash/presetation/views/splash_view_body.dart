@@ -3,6 +3,8 @@ import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/features/home/presentation/views/home_view.dart';
 import 'package:tec_store/generated/l10n.dart';
 
+import '../../../../constants.dart';
+import '../../../../core/services/shared_prefrences_singletone.dart';
 import '../../../auth/presentation/views/sign_in_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -17,7 +19,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 3), () {
-     // isLoggedIn = Prefs.getBool(kIsLoggedIn);
+      isLoggedIn = Prefs.getBool(kIsLoggedIn);
       isLoggedIn
           ? Navigator.pushReplacementNamed(context, HomeView.routName)
           : Navigator.pushReplacementNamed(context, SignInView.routName);

@@ -4,14 +4,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec_store/core/helpers/on_generate_routs.dart';
 import 'package:tec_store/core/services/get_it_service.dart';
 import 'package:tec_store/features/auth/presentation/cubits/reset_password_cubit/reset_password_cubit.dart';
-import 'package:tec_store/features/auth/presentation/views/create_newPassword_view.dart';
 import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
 import 'core/services/shared_prefrences_singletone.dart';
 import 'core/utils/app_theme.dart';
 import 'features/auth/domain/repos/auth_epo.dart';
 import 'features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'features/auth/presentation/cubits/verify_email_cubit/verify_email_cubit.dart';
-import 'features/home/presentation/views/widgets/main_layout.dart';
 import 'generated/l10n.dart';
 
 void main() async {

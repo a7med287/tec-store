@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:tec_store/core/helpers/build_snak_bar.dart';
 import 'package:tec_store/features/auth/presentation/cubits/reset_password_cubit/reset_password_cubit.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/create_newpassword_body.dart';
 import 'package:tec_store/generated/l10n.dart';
@@ -23,12 +24,7 @@ class CreateNewPasswordBlocConsumer extends StatelessWidget {
             ),
           );
         } else if (state is ResetPasswordSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(S.of(context).passwordResetSuccessfully),
-              backgroundColor: Colors.green,
-            ),
-          );
+          buildSnackBar(context, S.of(context).passwordResetSuccessfully);
           Navigator.pop(context);
         }
       },

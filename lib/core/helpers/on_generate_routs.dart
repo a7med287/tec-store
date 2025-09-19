@@ -5,8 +5,8 @@ import 'package:tec_store/features/auth/presentation/views/verfiy_view.dart';
 import 'package:tec_store/features/home/presentation/views/widgets/main_layout.dart';
 import 'package:tec_store/features/home/presentation/views/home_view.dart';
 import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
+import '../../features/auth/presentation/views/create_new_password_view.dart';
 import '../../features/auth/presentation/views/sign_in_view.dart';
-import 'package:tec_store/features/auth/presentation/views/create_newPassword_view.dart';
 import '../enums/verify_flow.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {

@@ -314,10 +314,10 @@ class S {
     );
   }
 
-  /// `Password reset successfully`
+  /// `Password reset successfully, login`
   String get passwordResetSuccessfully {
     return Intl.message(
-      'Password reset successfully',
+      'Password reset successfully, login',
       name: 'passwordResetSuccessfully',
       desc: '',
       args: [],

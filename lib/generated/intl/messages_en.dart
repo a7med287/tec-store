@@ -68,7 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordResetSuccessfully": MessageLookupByLibrary.simpleMessage(
-      "Password reset successfully",
+      "Password reset successfully, login",
     ),
     "passwordRule": MessageLookupByLibrary.simpleMessage(
       "Must be at least 8 characters",

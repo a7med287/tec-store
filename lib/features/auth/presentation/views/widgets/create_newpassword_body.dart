@@ -3,13 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/core/widgets/password_text_filed.dart';
 import 'package:tec_store/features/auth/presentation/cubits/reset_password_cubit/reset_password_cubit.dart';
-import 'package:tec_store/features/auth/presentation/cubits/sign_in_cubit/sign_in_cubit.dart';
 import 'package:tec_store/generated/l10n.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class CreateNewPasswordBody extends StatefulWidget {
-  const CreateNewPasswordBody({super.key, required this.email, required this.code});
+  const CreateNewPasswordBody({
+    super.key,
+    required this.email,
+    required this.code,
+  });
   final String email;
   final String code;
   @override
@@ -17,7 +19,6 @@ class CreateNewPasswordBody extends StatefulWidget {
 }
 
 class CreateNewPasswordBodyState extends State<CreateNewPasswordBody> {
-  
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
@@ -44,15 +45,6 @@ class CreateNewPasswordBodyState extends State<CreateNewPasswordBody> {
                 textInputType: TextInputType.visiblePassword,
               ),
               const SizedBox(height: 12),
-              Row(
-                children: [
-                  Text(
-                    S.of(context).passwordRule,
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
               PasswordTextFormField(
                 onSaved: (value) {
                   confirmPassword = value!;
@@ -69,13 +61,19 @@ class CreateNewPasswordBodyState extends State<CreateNewPasswordBody> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    context
-                        .read<ResetPasswordCubit>()
-                        .resetPassword(widget.email,widget.code,password, confirmPassword);
+                    context.read<ResetPasswordCubit>().resetPassword(
+                      widget.email,
+                      widget.code,
+                      password,
+                      confirmPassword,
+                    );
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
                   }
+                  debugPrint(
+                    "in create new password,  email:${widget.email},code: ${widget.code},\nPassword is$password,$confirmPassword,",
+                  );
                 },
               ),
             ],

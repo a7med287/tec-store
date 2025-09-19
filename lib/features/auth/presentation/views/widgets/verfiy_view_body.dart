@@ -61,7 +61,7 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
                     setState(() {});
                   }
                   debugPrint(
-                    "email:${widget.email}, code: $code",
+                    "email:${widget.email}, code:$code",
                   );
                 },
               ),

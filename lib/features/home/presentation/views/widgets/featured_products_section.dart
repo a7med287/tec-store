@@ -29,7 +29,7 @@ class FeaturedProductsSection extends StatelessWidget {
           height: 372,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 3,
+           // itemCount: 3,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.only(right: index == 2 ? 0 : 16),

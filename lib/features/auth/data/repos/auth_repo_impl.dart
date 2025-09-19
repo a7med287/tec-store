@@ -101,13 +101,14 @@ class AuthRepoImpl extends AuthRepo {
       },
     );
 
-    if (response["statusCode"] != null && response["statusCode"] != 200) {
-      throw Exception(response["message"] ?? "Login failed");
-    }
-    if (response["statusCode"] == 200) {
+    if (response["isSuccess"] == true && response["statusCode"] == 200) {
       return true;
     } else {
-      return false;
+      final errors = response["errors"];
+      if (errors is List) {
+        throw Exception(errors.join("\n"));
+      }
+      throw Exception(response["message"]);
     }
   }
 
@@ -125,22 +126,19 @@ class AuthRepoImpl extends AuthRepo {
       },
     );
 
-    if (response["success"] == true) {
+    if (response["isSuccess"] == true && response["statusCode"] == 200) {
       return true;
     } else {
       final errors = response["errors"];
       if (errors is List) {
-        final errorMessage = errors.join("\n");
-        throw Exception(errorMessage);
+        throw Exception(errors.join("\n"));
       }
-      throw Exception(
-        response["message"] ?? "Failed to resend verification code",
-      );
+      throw Exception(response["message"]);
     }
   }
   
   @override
-  Future<void> resetPassword(
+  Future<bool> resetPassword(
     String email,
     String code,
     String newPassword,
@@ -160,8 +158,14 @@ class AuthRepoImpl extends AuthRepo {
       },
     );
 
-    if (response["statusCode"] != null && response["statusCode"] != 200) {
-      throw Exception(response["message"] ?? "Reset password failed");
-    }
+      if (response["isSuccess"] == true && response["statusCode"] == 200) {
+        return true;
+      } else {
+        final errors = response["errors"];
+        if (errors is List) {
+          throw Exception(errors.join("\n"));
+        }
+        throw Exception(response["message"]);
+      }
   }
 }
