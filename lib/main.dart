@@ -11,7 +11,7 @@ import 'core/utils/app_theme.dart';
 import 'features/auth/domain/repos/auth_epo.dart';
 import 'features/auth/presentation/cubits/register_cubit/register_cubit.dart';
 import 'features/auth/presentation/cubits/verify_email_cubit/verify_email_cubit.dart';
-import 'features/home/presentation/views/home_view.dart';
+import 'features/home/presentation/views/widgets/main_layout.dart';
 import 'generated/l10n.dart';
 
 void main() async {
@@ -51,7 +51,7 @@ class TecZone extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppTheme.primary),
         ),
         onGenerateRoute: onGenerateRoute,
-        initialRoute: CreateNewPasswordView.routName,
+        initialRoute: SplashView.routName,
       ),
     );
   }

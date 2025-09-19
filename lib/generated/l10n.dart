@@ -264,6 +264,56 @@ class S {
     return Intl.message('Close', name: 'close', desc: '', args: []);
   }
 
+  /// `Search laptops, accessories...`
+  String get search {
+    return Intl.message(
+      'Search laptops, accessories...',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Featured Products`
+  String get featuredProducts {
+    return Intl.message(
+      'Featured Products',
+      name: 'featuredProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View All`
+  String get ViewAll {
+    return Intl.message('View All', name: 'ViewAll', desc: '', args: []);
+  }
+
+  /// `Popular`
+  String get Popular {
+    return Intl.message('Popular', name: 'Popular', desc: '', args: []);
+  }
+
+  /// `Shop by Category`
+  String get sortBy {
+    return Intl.message('Shop by Category', name: 'sortBy', desc: '', args: []);
+  }
+
+  /// `Gaming`
+  String get Gaming {
+    return Intl.message('Gaming', name: 'Gaming', desc: '', args: []);
+  }
+
+  /// `Recommended for you`
+  String get recommendedForYou {
+    return Intl.message(
+      'Recommended for you',
+      name: 'recommendedForYou',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password reset successfully`
   String get passwordResetSuccessfully {
     return Intl.message(

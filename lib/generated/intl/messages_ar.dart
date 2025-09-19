@@ -35,10 +35,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "EnterThe6Digit": MessageLookupByLibrary.simpleMessage(
       "أدخل رمز التحقق المكون من 6 أرقام ",
     ),
+    "Gaming": MessageLookupByLibrary.simpleMessage("الألعاب"),
     "Or": MessageLookupByLibrary.simpleMessage("أو"),
     "PleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال بريدك الإلكتروني لتلقي OTP لإنشاء كلمة مرور جديدة عبر البريد الإلكتروني",
     ),
+    "Popular": MessageLookupByLibrary.simpleMessage("الأكثر مبيعا"),
     "ResendCode": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
     "VerifyYourEmailtoContinue": MessageLookupByLibrary.simpleMessage(
       "تحقق من بريدك الإلكتروني للمتابعة",
@@ -53,6 +55,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailOrPasswordIsNotCorrect": MessageLookupByLibrary.simpleMessage(
       "البريد الالكتروني أو كلمة المرور غير صحيحة",
+    ),
+    "featuredProducts": MessageLookupByLibrary.simpleMessage(
+      "المنتجات المميزة",
     ),
     "firstName": MessageLookupByLibrary.simpleMessage("الأسم الأول"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage(
@@ -71,9 +76,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordRule": MessageLookupByLibrary.simpleMessage(
       "يجب أن يتكون من 8 أحرف على الأقل",
     ),
+    "recommendedForYou": MessageLookupByLibrary.simpleMessage("موصى به لك"),
+    "search": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن أجهزة اللابتوب، الإكسسوارات...",
+    ),
     "sendEmail": MessageLookupByLibrary.simpleMessage("ارسل البريد الالكتروني"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "sortBy": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
     "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
     "verifyYourEmail": MessageLookupByLibrary.simpleMessage(
       "تحقق من بريدك الإلكتروني",

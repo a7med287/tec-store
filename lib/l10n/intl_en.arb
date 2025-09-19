@@ -27,5 +27,12 @@
   "confirmNewPassword": "Confirm New Password",
   "emailOrPasswordIsNotCorrect" : "Email or Password is not correct",
   "close":"Close",
+  "search": "Search laptops, accessories...",
+  "featuredProducts" : "Featured Products",
+    "ViewAll" : "View All",
+  "Popular" : "Popular",
+  "sortBy": "Shop by Category",
+  "Gaming" : "Gaming",
+  "recommendedForYou" : "Recommended for you",
   "passwordResetSuccessfully" : "Password reset successfully"
 }
