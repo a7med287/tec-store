@@ -15,7 +15,7 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
     emit(VerifyEmailLoading());
     try {
       await authRepo.confirmEmail(email , code);
-      emit(VerifyEmailSuccess());
+      emit(VerifyEmailSuccess(code: code));
     } catch (e) {
       final errorMessage = e.toString();
       debugPrint(errorMessage);

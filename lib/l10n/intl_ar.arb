@@ -27,6 +27,7 @@
   "newPassword": "كلمة مرور جديدة",
   "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
   "CreateNewPassword": "إنشاء كلمة مرور جديدة",
+  "passwordResetSuccessfully" : "تم إعادة تعيين كلمة المرور بنجاح"
   "search" : "ابحث عن أجهزة اللابتوب، الإكسسوارات...",
   "featuredProducts" : "المنتجات المميزة",
   "VeiwAll" : "عرض الكل",

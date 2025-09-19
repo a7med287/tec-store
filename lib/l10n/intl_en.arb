@@ -33,5 +33,6 @@
   "Popular" : "Popular",
   "sortBy": "Shop by Category",
   "Gaming" : "Gaming",
-  "recommendedForYou" : "Recommended for you"
+  "recommendedForYou" : "Recommended for you",
+  "passwordResetSuccessfully" : "Password reset successfully"
 }

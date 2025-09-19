@@ -70,6 +70,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "name": MessageLookupByLibrary.simpleMessage("الأسم"),
     "newPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
+    "passwordResetSuccessfully": MessageLookupByLibrary.simpleMessage(
+      "تم إعادة تعيين كلمة المرور بنجاح",
+    ),
     "passwordRule": MessageLookupByLibrary.simpleMessage(
       "يجب أن يتكون من 8 أحرف على الأقل",
     ),

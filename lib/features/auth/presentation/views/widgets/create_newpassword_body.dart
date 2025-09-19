@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/core/widgets/password_text_filed.dart';
+import 'package:tec_store/features/auth/presentation/cubits/reset_password_cubit/reset_password_cubit.dart';
 import 'package:tec_store/features/auth/presentation/cubits/sign_in_cubit/sign_in_cubit.dart';
 import 'package:tec_store/generated/l10n.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class CreateNewPasswordBody extends StatefulWidget {
-  const CreateNewPasswordBody({super.key});
-
+  const CreateNewPasswordBody({super.key, required this.email, required this.code});
+  final String email;
+  final String code;
   @override
   State<CreateNewPasswordBody> createState() => CreateNewPasswordBodyState();
 }
 
 class CreateNewPasswordBodyState extends State<CreateNewPasswordBody> {
+  
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
@@ -66,10 +69,9 @@ class CreateNewPasswordBodyState extends State<CreateNewPasswordBody> {
                 onTap: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    // context.read<SignInCubit>().signInWithEmailAndPassword(
-                    //   email,
-                    //   password,
-                    // );
+                    context
+                        .read<ResetPasswordCubit>()
+                        .resetPassword(widget.email,widget.code,password, confirmPassword);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});

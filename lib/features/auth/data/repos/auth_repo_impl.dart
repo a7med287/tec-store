@@ -138,4 +138,30 @@ class AuthRepoImpl extends AuthRepo {
       );
     }
   }
+  
+  @override
+  Future<void> resetPassword(
+    String email,
+    String code,
+    String newPassword,
+    String confirmPassword
+    ) async {
+      var response = await apiServices.post(
+      "auth/reset-password",
+      body: {
+        "email": email, 
+        "code": code, 
+        "newPassword": newPassword, 
+        "confirmPassword": confirmPassword
+      },
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": "application/json",
+      },
+    );
+
+    if (response["statusCode"] != null && response["statusCode"] != 200) {
+      throw Exception(response["message"] ?? "Reset password failed");
+    }
+  }
 }
