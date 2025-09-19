@@ -26,5 +26,6 @@
   "CreateNewPassword": "Create New Password",
   "confirmNewPassword": "Confirm New Password",
   "emailOrPasswordIsNotCorrect" : "Email or Password is not correct",
-  "close":"Close"
+  "close":"Close",
+  "passwordResetSuccessfully" : "Password reset successfully"
 }

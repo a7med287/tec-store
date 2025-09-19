@@ -22,8 +22,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (context) => const ForgetPasswordView(),
       );
     case CreateNewPasswordView.routName:
+      final args = settings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
-        builder: (context) => const CreateNewPasswordView(),
+        builder:
+            (context) =>
+                CreateNewPasswordView(email: args['email'], code: args['code']),
       );
     case VerifyView.routName:
       final args = settings.arguments as Map<String, dynamic>;

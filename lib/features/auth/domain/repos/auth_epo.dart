@@ -15,4 +15,11 @@ abstract class AuthRepo {
 
   Future<bool> resendVerificationCode(String email, int verificationType);
 
+  Future<void> resetPassword(
+    String email,
+    String code,
+    String newPassword,
+    String confirmPassword
+    );
+
 }

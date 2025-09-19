@@ -23,7 +23,8 @@ class VerifyEmailViewBodyBlockConsumer extends StatelessWidget {
             Navigator.pushReplacementNamed(context, HomeView.routName);
           } else {
             buildSnackBar(context, "Confirmed Successful, create new password");
-            Navigator.pushReplacementNamed(context, CreateNewPasswordView.routName);
+            Navigator.pushReplacementNamed(context, CreateNewPasswordView.routName,
+                arguments: {"email": email, "code": state.code});
           }
         }
         if (state is VerifyEmailFailure) {

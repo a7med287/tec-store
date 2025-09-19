@@ -263,6 +263,16 @@ class S {
   String get close {
     return Intl.message('Close', name: 'close', desc: '', args: []);
   }
+
+  /// `Password reset successfully`
+  String get passwordResetSuccessfully {
+    return Intl.message(
+      'Password reset successfully',
+      name: 'passwordResetSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
