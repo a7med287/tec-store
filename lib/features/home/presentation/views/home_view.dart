@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../../../core/utils/app_images1.dart';
-import '../../../../core/utils/app_theme.dart';
-import '../../../../core/widgets/card_widget.dart';
-import '../../../../generated/l10n.dart';
+import 'package:tec_store/features/home/presentation/views/widgets/categories_section.dart';
+import 'package:tec_store/features/home/presentation/views/widgets/featured_products_section.dart';
+import 'package:tec_store/features/home/presentation/views/widgets/header_section.dart';
+import 'package:tec_store/features/home/presentation/views/widgets/recommended_section.dart';
+import 'package:tec_store/features/home/presentation/views/widgets/search_bar_section.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
   static const String routName = "HomeView";
 
   @override
@@ -14,125 +14,59 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 32, left: 20, right: 20),
+          padding: const EdgeInsets.all(20).copyWith(top: 32),
           child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Greeting + Notifications
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Good Morning!',
-                          style: AppTheme.heading1.copyWith(
-                            color: AppTheme.textPrimary,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        Text(
-                          'Find your perfect tech companion',
-                          style: AppTheme.body.copyWith(color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.notifications,
-                        color: Colors.black54,
-                      ),
-                      style: IconButton.styleFrom(
-                        backgroundColor: Colors.grey.withAlpha(20),
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 24),
-
-                // Search Bar
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(999),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.search, color: Colors.grey, size: 24),
-                        const SizedBox(width: 8),
-                        Text(
-                          S.of(context).search,
-                          style: AppTheme.body.copyWith(color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                const SizedBox(height: 24),
-
-                // Featured Products Title
-                Row(
-                  children: [
-                    Text(
-                      S.of(context).featuredProducts,
-                      style: AppTheme.heading2.copyWith(
-                        color: AppTheme.textPrimary,
-                      ),
-                    ),
-                    const Spacer(),
-                    Text(
-                      S.of(context).VeiwAll,
-                      style: AppTheme.body.copyWith(color: AppTheme.secondary),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(height: 16),
-
-                // Horizontal List of Cards (ListView.builder)
-                SizedBox(
-                  height: 366,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 3,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(right: index == 2 ? 0 : 16),
-                        child: SizedBox(
-                          width: 230,
-                          child: CardWidget(
-                            title: "MacBook Pro 16",
-                            imageUrl: Assets.image1,
-                            rating: 4.8,
-                            reviewCount: 423,
-                            price: 289.0,
-                            oldPrice: 300.0,
-                            isPopular: index == 0,
-                            onTap: () {},
-                            onAddToCart: () {},
-                            onFavorite: () {},
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const SizedBox(height: 32),
+              children: const [
+                HeaderSection(),
+                SizedBox(height: 24),
+                SearchBarSection(),
+                SizedBox(height: 24),
+                FeaturedProductsSection(),
+                SizedBox(height: 24),
+                CategoriesSection(),
+                SizedBox(height: 24),
+                RecommendedSection(),
               ],
             ),
           ),
         ),
+      ),
+      floatingActionButton: GradientFAB(
+        onPressed: () {
+          // إضافة وظيفة عند الضغط على الزر
+        },
+      ),
+    );
+  }
+}
+
+class GradientFAB extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const GradientFAB({super.key, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
+      onPressed: () {},
+      backgroundColor: Colors.transparent,
+      elevation: 2,
+      child: Ink(
+        width: 56,
+        height: 56,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Color(0xFF03447D), Color(0xFF0397D9)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          shape: BoxShape.circle,
+        ),
+        child: const Icon(Icons.smart_toy_outlined, color: Colors.white),
       ),
     );
   }

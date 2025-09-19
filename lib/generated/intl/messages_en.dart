@@ -35,16 +35,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "EnterThe6Digit": MessageLookupByLibrary.simpleMessage(
       "Enter the 6-digit verification code ",
     ),
+    "Gaming": MessageLookupByLibrary.simpleMessage("Gaming"),
     "Or": MessageLookupByLibrary.simpleMessage("Or"),
     "PleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter your email to receive OTP to create a new password via email",
     ),
     "Popular": MessageLookupByLibrary.simpleMessage("Popular"),
     "ResendCode": MessageLookupByLibrary.simpleMessage("Resend Code"),
-    "VeiwAll": MessageLookupByLibrary.simpleMessage("Veiw All"),
     "VerifyYourEmailtoContinue": MessageLookupByLibrary.simpleMessage(
       "Verify your email to continue",
     ),
+    "ViewAll": MessageLookupByLibrary.simpleMessage("View All"),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
       "Confirm New Password",
@@ -69,12 +70,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordRule": MessageLookupByLibrary.simpleMessage(
       "Must be at least 8 characters",
     ),
+    "recommendedForYou": MessageLookupByLibrary.simpleMessage(
+      "Recommended for you",
+    ),
     "search": MessageLookupByLibrary.simpleMessage(
       "Search laptops, accessories...",
     ),
     "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "sortBy": MessageLookupByLibrary.simpleMessage("Shop by Category"),
     "userName": MessageLookupByLibrary.simpleMessage("User Name"),
     "verifyYourEmail": MessageLookupByLibrary.simpleMessage(
       "Verify Your Email",

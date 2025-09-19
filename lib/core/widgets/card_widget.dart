@@ -52,9 +52,9 @@ class CardWidget extends StatelessWidget {
                   child: InkWell(onTap: onTap),
                 ),
                 Positioned(
-                  top: 4,
-                  left: 4,
-                  right: 4,
+                  top: 8,
+                  left: 8,
+                  right: 8,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

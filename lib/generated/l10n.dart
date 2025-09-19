@@ -284,14 +284,34 @@ class S {
     );
   }
 
-  /// `Veiw All`
-  String get VeiwAll {
-    return Intl.message('Veiw All', name: 'VeiwAll', desc: '', args: []);
+  /// `View All`
+  String get ViewAll {
+    return Intl.message('View All', name: 'ViewAll', desc: '', args: []);
   }
 
   /// `Popular`
   String get Popular {
     return Intl.message('Popular', name: 'Popular', desc: '', args: []);
+  }
+
+  /// `Shop by Category`
+  String get sortBy {
+    return Intl.message('Shop by Category', name: 'sortBy', desc: '', args: []);
+  }
+
+  /// `Gaming`
+  String get Gaming {
+    return Intl.message('Gaming', name: 'Gaming', desc: '', args: []);
+  }
+
+  /// `Recommended for you`
+  String get recommendedForYou {
+    return Intl.message(
+      'Recommended for you',
+      name: 'recommendedForYou',
+      desc: '',
+      args: [],
+    );
   }
 }
 
