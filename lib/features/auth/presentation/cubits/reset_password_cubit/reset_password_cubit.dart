@@ -30,6 +30,42 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
                 : "No Internet connection",
           ),
         );
+      }else if (errorMessage.contains("Password must be at least 6")) {
+        emit(
+          ResetPasswordFailure(
+            Intl.getCurrentLocale() == "ar"
+                ? "كلمة المرور يجب أن تكون على الأقل 6 أحرف"
+                : "Password must be at least 6 characters",
+          ),
+        );
+      }else if (errorMessage.contains("Password and confirmation password do not match")) {
+        emit(
+          ResetPasswordFailure(
+            Intl.getCurrentLocale() == "ar"
+                ? "كلمة المرور غير متطابقة"
+                : "Passwords do not match",
+          ),
+        );
+      }else if (errorMessage.contains(
+        "Passwords must have at least one lowercase ('a'-'z')",
+      )) {
+        emit(
+          ResetPasswordFailure(
+             Intl.getCurrentLocale() == "ar"
+                ? "كلمة المرور يجب أن تحتوي على حرف صغير ('a'-'z')"
+                : "Password must have at least one lowercase letter ('a'-'z')",
+          ),
+        );
+      } else if (errorMessage.contains(
+        "Passwords must have at least one uppercase ('A'-'Z')",
+      )) {
+        emit(
+          ResetPasswordFailure(
+           Intl.getCurrentLocale() == "ar"
+                ? "كلمة المرور يجب أن تحتوي على حرف كبير ('A'-'Z')"
+                : "Password must have at least one uppercase letter ('A'-'Z')",
+          ),
+        );
       } else {
         emit(ResetPasswordFailure("error in forgot cubit $errorMessage"));
         debugPrint("error in forgot cubit  $errorMessage");

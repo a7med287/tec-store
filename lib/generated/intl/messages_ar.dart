@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "VerifyYourEmailtoContinue": MessageLookupByLibrary.simpleMessage(
       "تحقق من بريدك الإلكتروني للمتابعة",
     ),
+    "ViewAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "close": MessageLookupByLibrary.simpleMessage("إغلاق"),
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور الجديدة",

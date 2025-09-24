@@ -17,12 +17,7 @@ class CreateNewPasswordBlocConsumer extends StatelessWidget {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
         if (state is ResetPasswordFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage),
-              backgroundColor: Colors.red,
-            ),
-          );
+          buildSnackBar(context, state.errorMessage,isError: true);
         } else if (state is ResetPasswordSuccess) {
           buildSnackBar(context, S.of(context).passwordResetSuccessfully);
           Navigator.pop(context);
