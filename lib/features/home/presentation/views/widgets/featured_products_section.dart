@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tec_store/features/home/presentation/views/product_details_view.dart';
 import '../../../../../core/utils/app_images1.dart';
 import '../../../../../core/utils/app_theme.dart';
 import '../../../../../core/widgets/card_widget.dart';
@@ -29,7 +30,7 @@ class FeaturedProductsSection extends StatelessWidget {
           height: 372,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-           // itemCount: 3,
+            itemCount: 3,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.only(right: index == 2 ? 0 : 16),
@@ -43,7 +44,9 @@ class FeaturedProductsSection extends StatelessWidget {
                     price: 289.0,
                     oldPrice: 300.0,
                     isPopular: index == 0,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, ProductDetailsView.routName);
+                    },
                     onAddToCart: () {},
                     onFavorite: () {},
                   ),

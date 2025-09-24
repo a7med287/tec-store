@@ -47,6 +47,8 @@ dependencies:
   flutter_bloc: ^9.1.1
   modal_progress_hud_nsn: ^0.5.1
   shared_preferences: ^2.5.3
+  readmore: ^3.0.0
+  dotted_line: ^3.2.3
 
 dev_dependencies:
   flutter_test:
