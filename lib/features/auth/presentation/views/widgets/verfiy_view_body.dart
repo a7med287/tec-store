@@ -60,13 +60,11 @@ class _VerifyViewBodyState extends State<VerifyViewBody> {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
                   }
-                  debugPrint(
-                    "email:${widget.email}, code:$code",
-                  );
+                  debugPrint("email:${widget.email}, code:$code");
                 },
               ),
               const SizedBox(height: 26),
-              DidntReceiveAnyCodeWidget(email: widget.email,),
+              DidntReceiveAnyCodeWidget(email: widget.email),
             ],
           ),
         ),

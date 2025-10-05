@@ -6,43 +6,47 @@ class CategoriesSection extends StatelessWidget {
   const CategoriesSection({super.key});
 
   final List<Map<String, Object>> categories = const [
-    {
-      "title": "Gaming",
-      "icon": Icons.games,
-      "color": Colors.deepOrange,
-      "items": 45,
-    },
-    {
-      "title": "Business",
-      "icon": Icons.computer,
-      "color": Colors.blue,
-      "items": 15,
-    },
-    {
-      "title": "Accessories",
-      "icon": Icons.headset,
-      "color": Colors.purple,
-      "items": 50,
-    },
-    {
-      "title": "Smartphones",
-      "icon": Icons.smartphone,
-      "color": Colors.green,
-      "items": 30,
-    },
-    {
-      "title": "Laptops",
-      "icon": Icons.laptop,
-      "color": Colors.indigo,
-      "items": 25,
-    },
-    {
-      "title": "Wearables",
-      "icon": Icons.watch,
-      "color": Colors.teal,
-      "items": 20,
-    },
-  ];
+  {
+    "id": 6,
+    "name": "2-in-1",
+    "laptopsCount": 6
+  },
+  {
+    "id": 8,
+    "name": "Budget",
+    "laptopsCount": 6
+  },
+  {
+    "id": 3,
+    "name": "Business",
+    "laptopsCount": 6
+  },
+  {
+    "id": 4,
+    "name": "Creator",
+    "laptopsCount": 6
+  },
+  {
+    "id": 2,
+    "name": "Gaming",
+    "laptopsCount": 7
+  },
+  {
+    "id": 5,
+    "name": "Student",
+    "laptopsCount": 6
+  },
+  {
+    "id": 1,
+    "name": "Ultrabook",
+    "laptopsCount": 7
+  },
+  {
+    "id": 7,
+    "name": "Workstation",
+    "laptopsCount": 6
+  }
+];
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +79,7 @@ class CategoriesSection extends StatelessWidget {
                 color: AppTheme.surface,
                 child: ListTile(
                   title: Text(
-                    categories[index]["title"] as String,
+                    categories[index]["name"] as String,
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
@@ -83,24 +87,10 @@ class CategoriesSection extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    "${categories[index]["items"]} Items",
+                    "${categories[index]["laptopsCount"]} Items",
                     style: TextStyle(color: Colors.grey[600], fontSize: 14),
                   ),
-                  leading: Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: (categories[index]["color"] as Color).withAlpha(
-                        100,
-                      ),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Icon(
-                      categories[index]["icon"] as IconData,
-                      color: categories[index]["color"] as Color,
-                      size: 24,
-                    ),
                   ),
-                ),
               ),
         ),
       ],

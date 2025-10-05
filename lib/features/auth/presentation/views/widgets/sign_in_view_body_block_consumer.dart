@@ -19,8 +19,8 @@ class SignInViewBodyBlockConsumer extends StatelessWidget {
         if (state is SignInSuccess) {
           buildSnackBar(context, "Logged in Success");
           Prefs.setBool(kIsLoggedIn, true);
-          // final savedToken = Prefs.getString(tokenKey);
-          // debugPrint("token: $savedToken");
+          final savedToken = Prefs.getString(tokenKey);
+          debugPrint("token: $savedToken");
           Navigator.pushReplacementNamed(context, HomeView.routName);
         }
         if (state is SignInFailure) {

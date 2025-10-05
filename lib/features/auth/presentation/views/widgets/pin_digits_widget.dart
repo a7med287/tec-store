@@ -9,7 +9,7 @@ class PinDigitsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PinCodeTextField(
       validator: (value) {
-        if(value!.isEmpty){
+        if (value!.isEmpty) {
           return "value required";
         }
         return null;
@@ -33,7 +33,7 @@ class PinDigitsWidget extends StatelessWidget {
       onChanged: (value) {
         print(value);
       },
-      onCompleted: valueChangedCode
+      onCompleted: valueChangedCode,
     );
   }
 }

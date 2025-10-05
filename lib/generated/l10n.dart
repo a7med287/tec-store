@@ -323,6 +323,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Similar Products`
+  String get similarproducts {
+    return Intl.message(
+      'Similar Products',
+      name: 'similarproducts',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

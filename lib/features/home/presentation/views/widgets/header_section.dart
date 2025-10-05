@@ -26,8 +26,7 @@ class HeaderSection extends StatelessWidget {
         const Spacer(),
 
         //edit in future
-        buildPopupMenu(context)
-
+        buildPopupMenu(context),
 
         // IconButton(
         //   onPressed: () {},

@@ -19,7 +19,6 @@ abstract class AuthRepo {
     String email,
     String code,
     String newPassword,
-    String confirmPassword
-    );
-
+    String confirmPassword,
+  );
 }

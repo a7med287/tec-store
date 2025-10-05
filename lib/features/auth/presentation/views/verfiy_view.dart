@@ -20,7 +20,7 @@ class VerifyView extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: VerifyEmailViewBodyBlockConsumer(email: email, flow: flow,),
+      body: VerifyEmailViewBodyBlockConsumer(email: email, flow: flow),
     );
   }
 }

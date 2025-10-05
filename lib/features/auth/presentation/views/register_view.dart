@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tec_store/features/auth/presentation/views/widgets/resgister_view_body_block_consumer.dart';
 import 'package:tec_store/generated/l10n.dart';
 
-
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
 
@@ -10,16 +9,15 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-        appBar: AppBar(
-          title: Text(
-            S.of(context).signUp,
-            style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-          ),
-          centerTitle: true,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          S.of(context).signUp,
+          style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
         ),
-        body: RegisterViewBodyBlockConsumer(),
-      );
-
+        centerTitle: true,
+      ),
+      body: RegisterViewBodyBlockConsumer(),
+    );
   }
 }

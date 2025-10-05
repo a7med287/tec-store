@@ -45,23 +45,21 @@ class _ForgetPasswordViewBodyState extends State<ForgetPasswordViewBody> {
                 hintText: S.of(context).email,
                 iconData: Icons.email_outlined,
                 textInputType: TextInputType.emailAddress,
-                onSaved: (value){
-                  email=value!;
-                } ,
+                onSaved: (value) {
+                  email = value!;
+                },
               ),
               const SizedBox(height: 16),
               CustomButton(
                 text: S.of(context).sendEmail,
                 onTap: () {
                   if (formKey.currentState!.validate()) {
-                      formKey.currentState!.save();
-                      context.read<ForgetPasswordCubit>().forgetPassword(
-                        email
-                      );
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
-                    }
+                    formKey.currentState!.save();
+                    context.read<ForgetPasswordCubit>().forgetPassword(email);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
                 },
               ),
               const SizedBox(height: 26),

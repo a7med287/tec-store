@@ -8,16 +8,18 @@ import 'package:tec_store/generated/l10n.dart';
 
 class CreateNewPasswordBlocConsumer extends StatelessWidget {
   const CreateNewPasswordBlocConsumer({
-    super.key, required this.email, required this.code,
+    super.key,
+    required this.email,
+    required this.code,
   });
   final String email;
-  final String code ;
+  final String code;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
         if (state is ResetPasswordFailure) {
-          buildSnackBar(context, state.errorMessage,isError: true);
+          buildSnackBar(context, state.errorMessage, isError: true);
         } else if (state is ResetPasswordSuccess) {
           buildSnackBar(context, S.of(context).passwordResetSuccessfully);
           Navigator.pop(context);
@@ -25,9 +27,9 @@ class CreateNewPasswordBlocConsumer extends StatelessWidget {
       },
       builder: (context, state) {
         return ModalProgressHUD(
-          inAsyncCall: state is ResetPasswordLoading? true : false,
-          child: CreateNewPasswordBody(email: email, code: code)
-          );
+          inAsyncCall: state is ResetPasswordLoading ? true : false,
+          child: CreateNewPasswordBody(email: email, code: code),
+        );
       },
     );
   }

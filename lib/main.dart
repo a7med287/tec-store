@@ -4,6 +4,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tec_store/core/helpers/on_generate_routs.dart';
 import 'package:tec_store/core/services/get_it_service.dart';
 import 'package:tec_store/features/auth/presentation/cubits/reset_password_cubit/reset_password_cubit.dart';
+import 'package:tec_store/features/home/domain/repos/home_epo.dart';
+import 'package:tec_store/features/home/presentation/cubits/laptops_cubit/laptops_cubit.dart';
+import 'package:tec_store/features/home/presentation/views/home_view.dart';
+import 'package:tec_store/features/home/presentation/views/laptops_grid_view.dart';
+import 'package:tec_store/features/home/presentation/views/product_details_view.dart';
 import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
 import 'core/services/shared_prefrences_singletone.dart';
 import 'core/utils/app_theme.dart';
@@ -29,6 +34,7 @@ class TecZone extends StatelessWidget {
         BlocProvider(create: (_) => RegisterCubit(getIt<AuthRepo>())),
         BlocProvider(create: (_) => VerifyEmailCubit(getIt<AuthRepo>())),
         BlocProvider(create: (_) => ResetPasswordCubit(getIt<AuthRepo>())),
+        BlocProvider(create: (_) => LaptopsCubit(getIt<HomeRepo>())),
       ],
       child: MaterialApp(
         localizationsDelegates: [
@@ -49,7 +55,7 @@ class TecZone extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppTheme.primary),
         ),
         onGenerateRoute: onGenerateRoute,
-        initialRoute: SplashView.routName,
+        initialRoute: HomeView.routName,
       ),
     );
   }

@@ -18,9 +18,7 @@ class SignInView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            S
-                .of(context)
-                .signIn,
+            S.of(context).signIn,
             style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
@@ -30,4 +28,3 @@ class SignInView extends StatelessWidget {
     );
   }
 }
-

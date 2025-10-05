@@ -36,16 +36,16 @@ class SignInCubit extends Cubit<SignInState> {
                     : "No Internet connection",
           ),
         );
-      }else if (errorMessage.contains("Email not confirmed")) {
+      } else if (errorMessage.contains("Email not confirmed")) {
         emit(
           SignInFailure(
             errorMessage:
-            Intl.getCurrentLocale() == "ar"
-                ? "البريد الإلكتروني غير مؤكد"
-                : "Email not confirmed",
+                Intl.getCurrentLocale() == "ar"
+                    ? "البريد الإلكتروني غير مؤكد"
+                    : "Email not confirmed",
           ),
         );
-      }  else {
+      } else {
         emit(SignInFailure(errorMessage: "حصل خطأ: $errorMessage"));
       }
     }

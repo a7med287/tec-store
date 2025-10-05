@@ -136,21 +136,21 @@ class AuthRepoImpl extends AuthRepo {
       throw Exception(response["message"]);
     }
   }
-  
+
   @override
   Future<bool> resetPassword(
     String email,
     String code,
     String newPassword,
-    String confirmPassword
-    ) async {
-      var response = await apiServices.post(
+    String confirmPassword,
+  ) async {
+    var response = await apiServices.post(
       "auth/reset-password",
       body: {
-        "email": email, 
-        "code": code, 
-        "newPassword": newPassword, 
-        "confirmPassword": confirmPassword
+        "email": email,
+        "code": code,
+        "newPassword": newPassword,
+        "confirmPassword": confirmPassword,
       },
       headers: {
         "Content-Type": 'application/json',
@@ -158,14 +158,14 @@ class AuthRepoImpl extends AuthRepo {
       },
     );
 
-      if (response["isSuccess"] == true && response["statusCode"] == 200) {
-        return true;
-      } else {
-        final errors = response["errors"];
-        if (errors is List) {
-          throw Exception(errors.join("\n"));
-        }
-        throw Exception(response["message"]);
+    if (response["isSuccess"] == true && response["statusCode"] == 200) {
+      return true;
+    } else {
+      final errors = response["errors"];
+      if (errors is List) {
+        throw Exception(errors.join("\n"));
       }
+      throw Exception(response["message"]);
+    }
   }
 }

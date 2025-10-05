@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tec_store/generated/l10n.dart';
 
-void buildSnackBar(BuildContext context, String message,
-    {bool isError = false }) {
+void buildSnackBar(
+  BuildContext context,
+  String message, {
+  bool isError = false,
+}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       behavior: SnackBarBehavior.floating,
       margin: const EdgeInsets.all(12),
       duration: const Duration(seconds: 3),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       backgroundColor: isError ? Colors.redAccent : Colors.green,
       content: Row(
         children: [
@@ -28,7 +29,7 @@ void buildSnackBar(BuildContext context, String message,
         ],
       ),
       action: SnackBarAction(
-        label:S.of(context).close,
+        label: S.of(context).close,
         textColor: Colors.white,
         onPressed: () {
           ScaffoldMessenger.of(context).hideCurrentSnackBar();

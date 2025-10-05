@@ -20,7 +20,7 @@ class ForgetPasswordViewBodyBlockConsumer extends StatelessWidget {
           Navigator.pushReplacementNamed(
             context,
             VerifyView.routName,
-            arguments:  {
+            arguments: {
               'email': state.email,
               'flow': VerifyFlow.forgotPassword,
             },

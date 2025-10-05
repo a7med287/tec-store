@@ -13,8 +13,8 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
   Future<void> forgetPassword(String email) async {
     emit(ForgetPasswordLoading());
     try {
-        await authRepo.forgetPassword(email);
-        emit(ForgetPasswordSuccess( email: email ));
+      await authRepo.forgetPassword(email);
+      emit(ForgetPasswordSuccess(email: email));
     } catch (e) {
       final errorMessage = e.toString();
       if (errorMessage.contains("لا يوجد اتصال بالإنترنت")) {

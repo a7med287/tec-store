@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tec_store/features/home/data/models/laptop_model.dart';
 import '../../generated/l10n.dart';
 import '../utils/app_theme.dart';
 
 class CardWidget extends StatelessWidget {
-  final String title;
-  final String imageUrl;
-  final double rating;
-  final int reviewCount;
-  final double price;
-  final double? oldPrice;
+  final LaptopModel laptop;
   final bool isPopular;
   final VoidCallback onAddToCart;
   final VoidCallback onFavorite;
@@ -16,16 +12,11 @@ class CardWidget extends StatelessWidget {
 
   const CardWidget({
     super.key,
-    required this.title,
-    required this.imageUrl,
-    required this.rating,
-    required this.reviewCount,
-    required this.price,
-    this.oldPrice,
-    this.isPopular = true,
+    required this.laptop,
     required this.onAddToCart,
     required this.onFavorite,
     required this.onTap,
+    required this.isPopular,
   });
 
   @override
@@ -45,7 +36,7 @@ class CardWidget extends StatelessWidget {
             child: Stack(
               children: [
                 Ink.image(
-                  image: AssetImage(imageUrl),
+                  image: AssetImage("assets/images/image1.jpg"),
                   width: double.infinity,
                   height: 200,
                   fit: BoxFit.cover,
@@ -98,7 +89,7 @@ class CardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  laptop.name ?? "",
                   style: AppTheme.heading2.copyWith(
                     color: AppTheme.textPrimary,
                   ),
@@ -109,7 +100,7 @@ class CardWidget extends StatelessWidget {
                     const Icon(Icons.star, color: Colors.yellow, size: 16),
                     const SizedBox(width: 4),
                     Text(
-                      "$rating ($reviewCount)",
+                      "${laptop.rate} (${laptop.reviewsCount})",
                       style: AppTheme.body.copyWith(color: Colors.grey),
                     ),
                   ],
@@ -117,20 +108,28 @@ class CardWidget extends StatelessWidget {
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    Text(
-                      '\$$price',
-                      style: AppTheme.body.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: AppTheme.secondary,
+                    if (laptop.isDiscounted!) ...[
+                      Text(
+                        '\$${laptop.discountedPrice}',
+                        style: AppTheme.body.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: AppTheme.secondary,
+                        ),
                       ),
-                    ),
-                    if (oldPrice != null) ...[
                       const SizedBox(width: 8),
                       Text(
-                        '\$$oldPrice',
+                        '\$${laptop.price}',
                         style: AppTheme.body.copyWith(
                           decoration: TextDecoration.lineThrough,
                           color: Colors.grey,
+                        ),
+                      ),
+                    ] else ...[
+                      Text(
+                        '\$${laptop.price}',
+                        style: AppTheme.body.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: AppTheme.secondary,
                         ),
                       ),
                     ],

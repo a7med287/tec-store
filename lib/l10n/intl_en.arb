@@ -34,5 +34,6 @@
   "sortBy": "Shop by Category",
   "Gaming" : "Gaming",
   "recommendedForYou" : "Recommended for you",
-  "passwordResetSuccessfully" : "Password reset successfully, login"
+  "passwordResetSuccessfully" : "Password reset successfully, login",
+  "similarproducts" : "Similar Products"
 }

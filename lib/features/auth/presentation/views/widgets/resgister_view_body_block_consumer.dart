@@ -16,17 +16,11 @@ class RegisterViewBodyBlockConsumer extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccess) {
-          buildSnackBar(
-            context,
-            "Registered Successful, Confirm email" ,
-          );
+          buildSnackBar(context, "Registered Successful, Confirm email");
           Navigator.pushNamed(
             context,
             VerifyView.routName,
-            arguments:  {
-              'email': state.email,
-              'flow': VerifyFlow.register,
-            },
+            arguments: {'email': state.email, 'flow': VerifyFlow.register},
           );
         }
         if (state is RegisterFailure) {

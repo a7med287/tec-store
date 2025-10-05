@@ -3,7 +3,11 @@ import 'package:tec_store/features/auth/presentation/views/widgets/create_newPas
 import 'package:tec_store/generated/l10n.dart';
 
 class CreateNewPasswordView extends StatelessWidget {
-  const CreateNewPasswordView({super.key, required this.email, required this.code});
+  const CreateNewPasswordView({
+    super.key,
+    required this.email,
+    required this.code,
+  });
   final String email;
   final String code;
   static const String routName = "CreateNewPasswordView";

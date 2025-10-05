@@ -11,10 +11,10 @@ class VerifyEmailCubit extends Cubit<VerifyEmailState> {
 
   final AuthRepo authRepo;
 
-  Future<void> confirmEmail(String email,String code) async {
+  Future<void> confirmEmail(String email, String code) async {
     emit(VerifyEmailLoading());
     try {
-      await authRepo.confirmEmail(email , code);
+      await authRepo.confirmEmail(email, code);
       emit(VerifyEmailSuccess(code: code));
     } catch (e) {
       final errorMessage = e.toString();

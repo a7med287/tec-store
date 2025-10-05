@@ -1,4 +1,1 @@
-enum VerifyFlow {
-  register,
-  forgotPassword,
-}
+enum VerifyFlow { register, forgotPassword }

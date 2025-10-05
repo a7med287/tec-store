@@ -22,12 +22,15 @@ class SocialButton extends StatelessWidget {
           children: [
             SvgPicture.asset("assets/images/google_icon.svg"),
             Spacer(),
-            Text(S.of(context).loginWithGoogle,style: TextStyle(
+            Text(
+              S.of(context).loginWithGoogle,
+              style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Colors.black
-            ),),
-            Spacer()
+                color: Colors.black,
+              ),
+            ),
+            Spacer(),
           ],
         ),
       ),

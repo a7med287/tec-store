@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendEmail": MessageLookupByLibrary.simpleMessage("ارسل البريد الالكتروني"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "similarproducts": MessageLookupByLibrary.simpleMessage("منتجات مشابهة"),
     "sortBy": MessageLookupByLibrary.simpleMessage("تسوق حسب الفئة"),
     "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
     "verifyYourEmail": MessageLookupByLibrary.simpleMessage(

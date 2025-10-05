@@ -8,7 +8,6 @@ import 'package:tec_store/generated/l10n.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
-
 class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({super.key});
 

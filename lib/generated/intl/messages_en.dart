@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "similarproducts": MessageLookupByLibrary.simpleMessage("Similar Products"),
     "sortBy": MessageLookupByLibrary.simpleMessage("Shop by Category"),
     "userName": MessageLookupByLibrary.simpleMessage("User Name"),
     "verifyYourEmail": MessageLookupByLibrary.simpleMessage(

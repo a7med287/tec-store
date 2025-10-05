@@ -5,10 +5,19 @@ import 'package:tec_store/features/home/presentation/views/widgets/header_sectio
 import 'package:tec_store/features/home/presentation/views/widgets/recommended_section.dart';
 import 'package:tec_store/features/home/presentation/views/widgets/search_bar_section.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
   static const String routName = "HomeView";
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
 
+class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,16 +28,16 @@ class HomeView extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                HeaderSection(),
-                SizedBox(height: 24),
-                SearchBarSection(),
-                SizedBox(height: 24),
-                FeaturedProductsSection(),
-                SizedBox(height: 24),
+              children: [
+                const HeaderSection(),
+                const SizedBox(height: 24),
+                const SearchBarSection(),
+                const SizedBox(height: 24),
+                const FeaturedProductsSection(),
+                const SizedBox(height: 24),
                 CategoriesSection(),
-                SizedBox(height: 24),
-                RecommendedSection(),
+                const SizedBox(height: 24),
+                const RecommendedSection(),
               ],
             ),
           ),

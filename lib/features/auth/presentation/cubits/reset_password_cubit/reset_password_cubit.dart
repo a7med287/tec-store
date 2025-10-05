@@ -30,7 +30,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
                 : "No Internet connection",
           ),
         );
-      }else if (errorMessage.contains("Password must be at least 6")) {
+      } else if (errorMessage.contains("Password must be at least 6")) {
         emit(
           ResetPasswordFailure(
             Intl.getCurrentLocale() == "ar"
@@ -38,7 +38,9 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
                 : "Password must be at least 6 characters",
           ),
         );
-      }else if (errorMessage.contains("Password and confirmation password do not match")) {
+      } else if (errorMessage.contains(
+        "Password and confirmation password do not match",
+      )) {
         emit(
           ResetPasswordFailure(
             Intl.getCurrentLocale() == "ar"
@@ -46,12 +48,12 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
                 : "Passwords do not match",
           ),
         );
-      }else if (errorMessage.contains(
+      } else if (errorMessage.contains(
         "Passwords must have at least one lowercase ('a'-'z')",
       )) {
         emit(
           ResetPasswordFailure(
-             Intl.getCurrentLocale() == "ar"
+            Intl.getCurrentLocale() == "ar"
                 ? "كلمة المرور يجب أن تحتوي على حرف صغير ('a'-'z')"
                 : "Password must have at least one lowercase letter ('a'-'z')",
           ),
@@ -61,7 +63,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
       )) {
         emit(
           ResetPasswordFailure(
-           Intl.getCurrentLocale() == "ar"
+            Intl.getCurrentLocale() == "ar"
                 ? "كلمة المرور يجب أن تحتوي على حرف كبير ('A'-'Z')"
                 : "Password must have at least one uppercase letter ('A'-'Z')",
           ),
