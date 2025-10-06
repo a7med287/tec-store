@@ -1,7 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:tec_store/features/home/presentation/views/widgets/recommended_skeletonizer_loading.dart';
 import 'package:tec_store/features/home/presentation/views/widgets/recommened_card_widget.dart';
+
+import '../../cubits/recommended_laptops/recommended_laptops_cubit.dart';
 
 class RecommendedSection extends StatefulWidget {
   const RecommendedSection({super.key});
@@ -13,12 +17,12 @@ class RecommendedSection extends StatefulWidget {
 class _RecommendedSectionState extends State<RecommendedSection> {
   final ScrollController _scrollController = ScrollController();
   late Timer _autoScrollTimer;
-  final double _itemWidth = 380 + 16;
-  final int _itemCount = 5;
+  final double _itemWidth = 370 + 16;
 
   @override
   void initState() {
     super.initState();
+    context.read<RecommendedLaptopsCubit>().fetchRecommendedLaptops();
     _startAutoScroll();
   }
 
@@ -36,21 +40,36 @@ class _RecommendedSectionState extends State<RecommendedSection> {
       children: [
         SizedBox(
           height: 150,
-          child: ListView.builder(
-            controller: _scrollController,
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            itemCount: _itemCount,
-            itemBuilder: (context, index) {
-             // final actualIndex = index % _itemCount;
+          child: BlocBuilder<RecommendedLaptopsCubit, RecommendedLaptopsState>(
+            builder: (context, state) {
+              if (state is RecommendedLaptopsLoading) {
+                return SkeletonizerRecommendedLoading();
+              } else if (state is RecommendedLaptopsFailure) {
+                return Center(child: Text(state.message));
+              } else if (state is RecommendedLaptopsSuccessful) {
+                final laptops = state.laptops;
+                return ListView.builder(
+                  controller: _scrollController,
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: laptops.length,
+                  itemBuilder: (context, index) {
+                    final laptop = laptops[index];
 
-              return Padding(
-                padding:
-                    Intl.getCurrentLocale() == "ar"
-                        ? EdgeInsets.only(left: 16.0)
-                        : EdgeInsets.only(right: 16.0),
-                child: SizedBox(width: 380, child: RecommendedCardWidget()),
-              );
+                    return Padding(
+                      padding:
+                          Intl.getCurrentLocale() == "ar"
+                              ? EdgeInsets.only(left: 16.0)
+                              : EdgeInsets.only(right: 16.0),
+                      child: SizedBox(
+                        width: 370,
+                        child: RecommendedCardWidget(laptopModel: laptop),
+                      ),
+                    );
+                  },
+                );
+              }
+              return const SizedBox.shrink();
             },
           ),
         ),
@@ -58,6 +77,7 @@ class _RecommendedSectionState extends State<RecommendedSection> {
     );
   }
 
+  //automatic scroll function
   void _startAutoScroll() {
     const scrollDuration = Duration(milliseconds: 600);
     const waitDuration = Duration(seconds: 2);
@@ -68,7 +88,7 @@ class _RecommendedSectionState extends State<RecommendedSection> {
       final maxScroll = _scrollController.position.maxScrollExtent;
       final current = _scrollController.offset;
 
-      double nextOffset = current + _itemWidth ;
+      double nextOffset = current + _itemWidth;
 
       if (nextOffset >= maxScroll) {
         _scrollController.jumpTo(0); // يرجع لأول بطاقة بسلاسة

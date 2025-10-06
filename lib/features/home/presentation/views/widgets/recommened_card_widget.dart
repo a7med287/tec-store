@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/core/utils/app_theme.dart';
+import 'package:tec_store/features/home/data/models/laptop_model.dart';
 
 class RecommendedCardWidget extends StatelessWidget {
-  const RecommendedCardWidget({super.key});
+  const RecommendedCardWidget({super.key, required this.laptopModel});
 
+  final LaptopModel laptopModel;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,6 +22,7 @@ class RecommendedCardWidget extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
+                // edit using api image in future
                 Assets.image2,
                 width: 100,
                 height: 100,
@@ -30,9 +33,11 @@ class RecommendedCardWidget extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+
                 children: [
                   Text(
-                    "Wireless Gaming Mouse",
+                   laptopModel.name ?? "null",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: AppTheme.heading2.copyWith(
@@ -42,19 +47,21 @@ class RecommendedCardWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Row(
-                    children: const [
+                    mainAxisSize: MainAxisSize.min,
+                    children:  [
                       Icon(Icons.star, color: Colors.yellow, size: 24),
                       SizedBox(width: 4),
-                      Text("4.7", style: TextStyle(fontSize: 14)),
+                      Text(  laptopModel.rate.toString()  , style: TextStyle(fontSize: 14)),
                       SizedBox(width: 8),
-                      Text("(320)", style: TextStyle(fontSize: 14)),
+                      Text( "(${laptopModel.reviewsCount} reviews)" , style: TextStyle(fontSize: 14)),
                     ],
                   ),
                   const SizedBox(height: 4),
                   Row(
+                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "\$89",
+                        "\$${laptopModel.price}",
                         style: AppTheme.body.copyWith(
                           fontWeight: FontWeight.bold,
                           color: AppTheme.primary,
