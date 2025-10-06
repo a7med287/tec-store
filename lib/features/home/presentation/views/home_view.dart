@@ -5,6 +5,10 @@ import 'package:tec_store/features/home/presentation/views/widgets/header_sectio
 import 'package:tec_store/features/home/presentation/views/widgets/recommended_section.dart';
 import 'package:tec_store/features/home/presentation/views/widgets/search_bar_section.dart';
 
+import '../../../../core/utils/app_theme.dart';
+import '../../../../generated/l10n.dart';
+
+
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
   static const String routName = "HomeView";
@@ -15,31 +19,32 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
-    
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20).copyWith(top: 32),
-          child: SingleChildScrollView(
+          child: ListView(
             physics: const BouncingScrollPhysics(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const HeaderSection(),
-                const SizedBox(height: 24),
-                const SearchBarSection(),
-                const SizedBox(height: 24),
-                const FeaturedProductsSection(),
-                const SizedBox(height: 24),
-                CategoriesSection(),
-                const SizedBox(height: 24),
-                const RecommendedSection(),
-              ],
-            ),
+            children:  [
+              HeaderSection(),
+              SizedBox(height: 24),
+              SearchBarSection(),
+              SizedBox(height: 24),
+              FeaturedProductsSection(),
+              SizedBox(height: 24),
+              CategoriesSection(),
+              SizedBox(height: 24),
+              Text(
+                 S.of(context).recommendedForYou,
+                 style: AppTheme.heading2.copyWith(color: AppTheme.textPrimary),
+              ),
+              RecommendedSection(),
+            ],
           ),
         ),
       ),

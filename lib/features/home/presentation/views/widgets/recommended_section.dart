@@ -1,96 +1,84 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import '../../../../../core/utils/app_images1.dart';
-import '../../../../../core/utils/app_theme.dart';
-import '../../../../../generated/l10n.dart';
+import 'package:intl/intl.dart';
+import 'package:tec_store/features/home/presentation/views/widgets/recommened_card_widget.dart';
 
-class RecommendedSection extends StatelessWidget {
+class RecommendedSection extends StatefulWidget {
   const RecommendedSection({super.key});
+
+  @override
+  State<RecommendedSection> createState() => _RecommendedSectionState();
+}
+
+class _RecommendedSectionState extends State<RecommendedSection> {
+  final ScrollController _scrollController = ScrollController();
+  late Timer _autoScrollTimer;
+  final double _itemWidth = 380 + 16;
+  final int _itemCount = 5;
+
+  @override
+  void initState() {
+    super.initState();
+    _startAutoScroll();
+  }
+
+  @override
+  void dispose() {
+    _autoScrollTimer.cancel();
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          S.of(context).recommendedForYou,
-          style: AppTheme.heading2.copyWith(color: AppTheme.textPrimary),
-        ),
-        const SizedBox(height: 16),
-        Card(
-          color: AppTheme.surface,
-          shadowColor: Colors.black12,
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    Assets.image2,
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Wireless Gaming Mouse",
-                        style: AppTheme.heading2.copyWith(
-                          fontSize: 18,
-                          color: AppTheme.textPrimary,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Row(
-                        children: const [
-                          Icon(Icons.star, color: Colors.yellow, size: 24),
-                          SizedBox(width: 4),
-                          Text("4.7", style: TextStyle(fontSize: 14)),
-                          SizedBox(width: 8),
-                          Text("(320)", style: TextStyle(fontSize: 14)),
-                        ],
-                      ),
-                      const SizedBox(height: 4),
-                      Row(
-                        children: [
-                          Text(
-                            "\$89",
-                            style: AppTheme.body.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: AppTheme.primary,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.add_shopping_cart),
-                  style: IconButton.styleFrom(
-                    foregroundColor: AppTheme.surface,
-                    backgroundColor: AppTheme.secondary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+        SizedBox(
+          height: 150,
+          child: ListView.builder(
+            controller: _scrollController,
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            itemCount: _itemCount,
+            itemBuilder: (context, index) {
+             // final actualIndex = index % _itemCount;
+
+              return Padding(
+                padding:
+                    Intl.getCurrentLocale() == "ar"
+                        ? EdgeInsets.only(left: 16.0)
+                        : EdgeInsets.only(right: 16.0),
+                child: SizedBox(width: 380, child: RecommendedCardWidget()),
+              );
+            },
           ),
         ),
       ],
     );
+  }
+
+  void _startAutoScroll() {
+    const scrollDuration = Duration(milliseconds: 600);
+    const waitDuration = Duration(seconds: 2);
+
+    _autoScrollTimer = Timer.periodic(waitDuration, (timer) {
+      if (!_scrollController.hasClients) return;
+
+      final maxScroll = _scrollController.position.maxScrollExtent;
+      final current = _scrollController.offset;
+
+      double nextOffset = current + _itemWidth ;
+
+      if (nextOffset >= maxScroll) {
+        _scrollController.jumpTo(0); // يرجع لأول بطاقة بسلاسة
+      } else {
+        _scrollController.animateTo(
+          nextOffset,
+          duration: scrollDuration,
+          curve: Curves.easeInOut,
+        );
+      }
+    });
   }
 }

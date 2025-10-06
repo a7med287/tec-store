@@ -7,9 +7,6 @@ import 'package:tec_store/features/auth/presentation/cubits/reset_password_cubit
 import 'package:tec_store/features/home/domain/repos/home_epo.dart';
 import 'package:tec_store/features/home/presentation/cubits/laptops_cubit/laptops_cubit.dart';
 import 'package:tec_store/features/home/presentation/views/home_view.dart';
-import 'package:tec_store/features/home/presentation/views/laptops_grid_view.dart';
-import 'package:tec_store/features/home/presentation/views/product_details_view.dart';
-import 'package:tec_store/features/splash/presetation/views/splash_view.dart';
 import 'core/services/shared_prefrences_singletone.dart';
 import 'core/utils/app_theme.dart';
 import 'features/auth/domain/repos/auth_epo.dart';
