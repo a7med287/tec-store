@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tec_store/core/utils/app_images1.dart';
 import 'package:tec_store/core/utils/app_theme.dart';
 import 'package:tec_store/features/home/data/models/laptop_model.dart';
 
@@ -21,9 +20,8 @@ class RecommendedCardWidget extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                // edit using api image in future
-                Assets.image2,
+              child: Image.network(
+                laptopModel.images[0] ?? "https://res.cloudinary.com/doqenvmbn/image/upload/v1759798338/techzone/laptops/nrwedq52msdw4yvtgryw.jpg",
                 width: 100,
                 height: 100,
                 fit: BoxFit.cover,

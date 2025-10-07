@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tec_store/constants.dart';
+import 'package:tec_store/core/services/shared_prefrences_singletone.dart';
 import 'package:tec_store/core/utils/app_theme.dart';
 import 'package:tec_store/features/auth/presentation/views/sign_in_view.dart';
 
@@ -68,6 +70,7 @@ void _showLogoutConfirmationDialog(BuildContext context) {
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pop(); // Close the dialog
+                  Prefs.setBool(kIsLoggedIn, false);
                   // Navigate to login page
                   Navigator.pushReplacementNamed(context, SignInView.routName);
                 },
