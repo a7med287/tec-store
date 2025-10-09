@@ -1,43 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:tec_store/constants.dart';
-import 'package:tec_store/core/services/shared_prefrences_singletone.dart';
-import 'package:tec_store/core/utils/app_theme.dart';
-import 'package:tec_store/features/auth/presentation/views/sign_in_view.dart';
+import '../../../../../../core/utils/app_theme.dart';
+import '../../../../../constants.dart';
+import '../../../../../core/services/shared_prefrences_singletone.dart';
+import '../../../../auth/presentation/views/sign_in_view.dart';
 
-Widget buildPopupMenu(BuildContext context) {
-  return PopupMenuButton<String>(
-    icon: const Icon(Icons.more_vert, color: Colors.black54),
-    itemBuilder:
-        (BuildContext context) => [
-          const PopupMenuItem<String>(
-            value: 'logout',
-            child: Row(
-              children: [
-                Icon(
-                  Icons.logout,
-                  color: AppTheme.primary,
-                ), // Added icon for visual appeal
-                SizedBox(width: 8),
-                Text('Logout', style: TextStyle(color: AppTheme.primary)),
-              ],
-            ),
-          ),
-        ],
-    onSelected: (String value) {
-      if (value == 'logout') {
-        _showLogoutConfirmationDialog(context);
-      }
-    },
-  );
-}
-
-// Function to show confirmation dialog with enhanced design and animation
-void _showLogoutConfirmationDialog(BuildContext context) {
+void showLogoutConfirmationDialog(BuildContext context) {
   showGeneralDialog(
     context: context,
     barrierDismissible: true,
     barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-    barrierColor: Colors.black.withValues(alpha: 0.5), // Dimmed background
+    barrierColor: Colors.black.withValues(alpha: 0.5),
     transitionDuration: const Duration(milliseconds: 300),
     pageBuilder: (context, animation, secondaryAnimation) {
       return Center(
@@ -47,7 +19,7 @@ void _showLogoutConfirmationDialog(BuildContext context) {
           ),
           child: AlertDialog(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16), // Rounded corners
+              borderRadius: BorderRadius.circular(16),
             ),
             backgroundColor: Colors.white,
             elevation: 10,
@@ -69,13 +41,12 @@ void _showLogoutConfirmationDialog(BuildContext context) {
             actions: [
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Close the dialog
+                  Navigator.of(context).pop();
                   Prefs.setBool(kIsLoggedIn, false);
-                  // Navigate to login page
                   Navigator.pushReplacementNamed(context, SignInView.routName);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primary, // Primary color
+                  backgroundColor: AppTheme.primary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -96,7 +67,7 @@ void _showLogoutConfirmationDialog(BuildContext context) {
               const SizedBox(width: 20),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Close the dialog
+                  Navigator.of(context).pop();
                 },
                 child: const Text(
                   'Cancel',

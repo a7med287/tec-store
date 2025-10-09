@@ -39,7 +39,7 @@ class ProductDetailsViewBody extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            CustomAppBar(),
+            CustomAppBar(title: 'Laptop Details',),
             SizedBox(height: 24),
             Stack(
               children: [
