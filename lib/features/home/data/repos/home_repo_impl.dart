@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:tec_store/core/services/api_services.dart';
 import 'package:tec_store/core/services/database_services.dart';
+import 'package:tec_store/features/home/data/models/laptop_details_model.dart';
 import 'package:tec_store/features/home/data/models/laptop_model.dart';
 import 'package:tec_store/features/home/domain/repos/home_epo.dart';
 
@@ -76,6 +77,29 @@ class HomeRepoImpl extends HomeRepo {
       return laptops;
     } catch (e) {
       debugPrint("Error in fetchRecommendedLaptops: $e");
+      rethrow;
+    }
+  }
+
+  @override
+  Future<LaptopDetailsModel> fetchLaptopDetails(int id) async {
+    try {
+      var response = await apiServices.get(
+        "Laptop/$id",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+      );
+
+      if (response["statusCode"] != 200) {
+        throw Exception(response["message"] ?? "Failed to fetch details");
+      }
+
+      final data = response["data"];
+      return LaptopDetailsModel.fromJson(data);
+    } catch (e) {
+      debugPrint("Error in fetchLaptopDetails: $e");
       rethrow;
     }
   }

@@ -40,7 +40,7 @@ class EditProfileViewBody extends StatelessWidget {
               iconData: Icons.person,
               textInputType: TextInputType.name,
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 16,),
             Text(
               "User Name",
               style: AppTheme.heading2.copyWith(
@@ -53,7 +53,7 @@ class EditProfileViewBody extends StatelessWidget {
               iconData: Icons.person,
               textInputType: TextInputType.name,
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 16,),
             Text(
               "Email",
               style: AppTheme.heading2.copyWith(
@@ -66,9 +66,9 @@ class EditProfileViewBody extends StatelessWidget {
               iconData: Icons.email_rounded,
               textInputType: TextInputType.name,
             ),
-            SizedBox(height: 16),
-            CustomButton(text: "Save Change"),
-          ],
+            SizedBox(height: 16,),
+            CustomButton(text: "Save Change")
+          ]
         ),
       ),
     );

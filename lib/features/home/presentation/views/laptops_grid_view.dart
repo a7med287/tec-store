@@ -47,14 +47,12 @@ class LaptopsGridView extends StatelessWidget {
                   laptop: laptop,
                   isPopular: index == 0,
                   onTap: () {
-                    try {
-                        Navigator.pushNamed(context, ProductDetailsView.routName);
-                      } catch (e) {
-                        debugPrint('Navigation error: $e');
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Navigation failed: $e')),
-                        );
-                      }
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => ProductDetailsView(productId: laptop.id!, laptopModel: laptop,),
+                      ),
+                    );
                   },
                   onAddToCart: () {},
                   onFavorite: () {},
