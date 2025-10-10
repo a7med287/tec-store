@@ -6,6 +6,7 @@ import 'package:tec_store/features/home/presentation/views/widgets/recommended_s
 import 'package:tec_store/features/home/presentation/views/widgets/recommened_card_widget.dart';
 
 import '../../cubits/recommended_laptops/recommended_laptops_cubit.dart';
+import '../product_details_view.dart';
 
 class RecommendedSection extends StatefulWidget {
   const RecommendedSection({super.key});
@@ -63,7 +64,14 @@ class _RecommendedSectionState extends State<RecommendedSection> {
                               : EdgeInsets.only(right: 16.0),
                       child: SizedBox(
                         width: 370,
-                        child: RecommendedCardWidget(laptopModel: laptop),
+                        child: RecommendedCardWidget(laptopModel: laptop,onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => ProductDetailsView(productId: laptop.id!, laptopModel: laptop,),
+                            ),
+                          );
+                        },),
                       ),
                     );
                   },
