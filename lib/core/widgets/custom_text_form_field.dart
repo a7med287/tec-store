@@ -8,6 +8,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.iconData,
     required this.textInputType,
     this.isPassword = false,
+    this.controller,
   });
 
   final void Function(String?)? onSaved;
@@ -15,9 +16,11 @@ class CustomTextFormField extends StatelessWidget {
   final IconData iconData;
   final TextInputType textInputType;
   final bool isPassword;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       validator: (value) {
         if (value!.isEmpty) {
           return "this is required";
@@ -30,9 +33,7 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         prefixIcon: Icon(iconData),
         hintText: hintText,
-        hintStyle: TextStyle(
-          color: Colors.grey
-        ),
+        hintStyle: TextStyle(color: Colors.grey),
         border: buildOutlineInputBorder(Colors.grey),
         enabledBorder: buildOutlineInputBorder(),
         focusedBorder: buildOutlineInputBorder(Colors.blue),

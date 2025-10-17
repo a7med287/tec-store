@@ -17,3 +17,7 @@ final class SignInFailure extends SignInState {
 
   SignInFailure({required this.errorMessage});
 }
+class SignInEmailNotConfirmed extends SignInState {
+  final UserEntity userEntity;
+  SignInEmailNotConfirmed({required this.userEntity});
+}

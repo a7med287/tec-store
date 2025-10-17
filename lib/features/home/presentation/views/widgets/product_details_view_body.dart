@@ -48,6 +48,7 @@ class ProductDetailsViewBody extends StatelessWidget {
               const SizedBox(height: 12),
               const ImagesList(),
               const SizedBox(height: 12),
+              //laptop name
               Row(
                 children: [
                   Text(
@@ -60,6 +61,8 @@ class ProductDetailsViewBody extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 12),
+
+              //rating and price
               Row(
                 children: [
                   const Icon(Icons.star, color: Colors.yellow, size: 28),
@@ -102,6 +105,8 @@ class ProductDetailsViewBody extends StatelessWidget {
                 dashColor: Colors.grey,
               ),
               const SizedBox(height: 8),
+
+              //description
               Row(
                 children: [
                   Text(
@@ -121,6 +126,7 @@ class ProductDetailsViewBody extends StatelessWidget {
                 moreStyle: const TextStyle(color: AppTheme.primary),
                 lessStyle: const TextStyle(color: AppTheme.primary),
               ),
+
               SizedBox(height: 16),
               ProductHighlightsSection(laptop: laptop),
               const SizedBox(height: 24),
