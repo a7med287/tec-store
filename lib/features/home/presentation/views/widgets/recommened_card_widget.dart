@@ -21,13 +21,17 @@ class RecommendedCardWidget extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  laptopModel.images[0] ?? "https://res.cloudinary.com/doqenvmbn/image/upload/v1759798338/techzone/laptops/nrwedq52msdw4yvtgryw.jpg",
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.cover,
+              SizedBox(
+                height: 100,
+                width: 100,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.network(
+                    laptopModel.images[0] ?? "https://res.cloudinary.com/doqenvmbn/image/upload/v1759798338/techzone/laptops/nrwedq52msdw4yvtgryw.jpg",
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(width: 16),

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tec_store/features/auth/presentation/views/forget_password_view.dart';
 import 'package:tec_store/features/auth/presentation/views/register_view.dart';
 import 'package:tec_store/features/auth/presentation/views/verfiy_view.dart';
+import 'package:tec_store/features/cart/presentation/views/cart_view.dart';
 import 'package:tec_store/features/home/presentation/cubits/laptops_cubit/laptops_cubit.dart';
 import 'package:tec_store/features/home/presentation/views/laptops_grid_view.dart';
 import 'package:tec_store/features/home/presentation/views/widgets/main_layout.dart';
@@ -46,11 +47,14 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const MainLayout());
     case LaptopsGridView.routName:
       return MaterialPageRoute(
-        builder: (context) => BlocProvider.value(
-          value: context.read<LaptopsCubit>(),
-          child: const LaptopsGridView(),
-        ),
+        builder:
+            (context) => BlocProvider.value(
+              value: context.read<LaptopsCubit>(),
+              child: const LaptopsGridView(),
+            ),
       );
+    case CartView.routeName:
+      return MaterialPageRoute(builder: (context) => const CartView());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

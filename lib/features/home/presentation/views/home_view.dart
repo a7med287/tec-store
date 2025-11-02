@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tec_store/core/widgets/button_navigation_bar.dart';
 import 'package:tec_store/features/home/presentation/views/widgets/categories_section.dart';
 import 'package:tec_store/features/home/presentation/views/widgets/featured_products_section.dart';
 import 'package:tec_store/features/home/presentation/views/widgets/header_section.dart';
@@ -7,7 +8,6 @@ import 'package:tec_store/features/home/presentation/views/widgets/search_bar_se
 
 import '../../../../core/utils/app_theme.dart';
 import '../../../../generated/l10n.dart';
-
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -30,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
           padding: const EdgeInsets.all(20).copyWith(top: 32),
           child: ListView(
             physics: const BouncingScrollPhysics(),
-            children:  [
+            children: [
               HeaderSection(),
               SizedBox(height: 24),
               SearchBarSection(),
@@ -40,8 +40,8 @@ class _HomeViewState extends State<HomeView> {
               CategoriesSection(),
               SizedBox(height: 24),
               Text(
-                 S.of(context).recommendedForYou,
-                 style: AppTheme.heading2.copyWith(color: AppTheme.textPrimary),
+                S.of(context).recommendedForYou,
+                style: AppTheme.heading2.copyWith(color: AppTheme.textPrimary),
               ),
               RecommendedSection(),
             ],
@@ -53,6 +53,7 @@ class _HomeViewState extends State<HomeView> {
           // إضافة وظيفة عند الضغط على الزر
         },
       ),
+      bottomNavigationBar: ButtonNavigationBar(selectedIndex: 0),
     );
   }
 }

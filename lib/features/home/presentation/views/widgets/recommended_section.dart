@@ -56,7 +56,6 @@ class _RecommendedSectionState extends State<RecommendedSection> {
                   itemCount: laptops.length,
                   itemBuilder: (context, index) {
                     final laptop = laptops[index];
-
                     return Padding(
                       padding:
                           Intl.getCurrentLocale() == "ar"
