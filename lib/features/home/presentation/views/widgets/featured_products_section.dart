@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tec_store/core/widgets/custom_small_button.dart';
 import 'package:tec_store/features/home/data/models/laptop_model.dart';
 import 'package:tec_store/features/home/presentation/cubits/laptops_cubit/laptops_cubit.dart';
 import 'package:tec_store/features/home/presentation/views/laptops_grid_view.dart';
@@ -39,16 +40,13 @@ class FeaturedProductsSection extends StatelessWidget {
               style: AppTheme.heading2.copyWith(color: AppTheme.textPrimary),
             ),
             const Spacer(),
-            ElevatedButton(
-              onPressed: () async {
+            CustomSmallButton(
+              onTap: () async {
                 try {
                   // Fetch laptops before navigating
                   context.read<LaptopsCubit>().fetchLaptops();
                   // Navigate to laptops grid view
-                  Navigator.pushNamed(
-                    context, 
-                    LaptopsGridView.routName,
-                  );
+                  Navigator.pushNamed(context, LaptopsGridView.routName);
                 } catch (e) {
                   debugPrint('View All button error: $e');
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -56,18 +54,7 @@ class FeaturedProductsSection extends StatelessWidget {
                   );
                 }
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.secondary,
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 8,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: Text(S.of(context).ViewAll),
+              text: S.of(context).ViewAll,
             ),
           ],
         ),
@@ -87,7 +74,10 @@ class FeaturedProductsSection extends StatelessWidget {
                     isPopular: index == 0,
                     onTap: () {
                       try {
-                        Navigator.pushNamed(context, ProductDetailsView.routName);
+                        Navigator.pushNamed(
+                          context,
+                          ProductDetailsView.routName,
+                        );
                       } catch (e) {
                         debugPrint('Navigation error: $e');
                         ScaffoldMessenger.of(context).showSnackBar(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tec_store/features/cart/data/models/cart_item_model.dart';
 import 'package:tec_store/features/cart/presentation/views/widgets/cart_item_card.dart';
+import 'package:tec_store/features/cart/presentation/views/widgets/discount_code_widget.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -12,6 +13,7 @@ class CartViewBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
+            SizedBox(height: 32),
             CartItemCard(
               cartItemModel: CartItemModel(
                 id: 1,
@@ -29,6 +31,8 @@ class CartViewBody extends StatelessWidget {
                 addedAt: "2024-01-15T10:00:00Z",
               ),
             ),
+            SizedBox(height: 24),
+            DiscountCodeCard(),
           ],
         ),
       ),
