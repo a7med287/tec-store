@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import '../utils/app_theme.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, this.onTap, required this.text});
+  const CustomButton({super.key, this.onTap, required this.text, this.color = AppTheme.primary});
   final void Function()? onTap;
   final String text;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -13,7 +14,7 @@ class CustomButton extends StatelessWidget {
         width: double.infinity,
         height: 55,
         decoration: BoxDecoration(
-          color: AppTheme.primary,
+          color: color,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
