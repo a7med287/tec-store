@@ -5,8 +5,38 @@ import 'package:tec_store/features/cart/presentation/views/widgets/discount_code
 import 'package:tec_store/features/cart/presentation/views/widgets/order_samary_widget.dart';
 
 class CartViewBody extends StatelessWidget {
-  const CartViewBody({super.key});
+  CartViewBody({super.key});
 
+  List<CartItemModel> cartList = [
+    CartItemModel(
+      id: 1,
+      productType: "productType",
+      productId: 3,
+      productName: "productName",
+      sku: "sku",
+      quantity: 1,
+      unitPrice: 200,
+      discountAmount: 0,
+      totalPrice: 200,
+      stockAvailable: 20,
+      image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+      addedAt: "2024-01-15T10:00:00Z",
+    ),
+    CartItemModel(
+      id: 1,
+      productType: "productType",
+      productId: 3,
+      productName: "productName",
+      sku: "sku",
+      quantity: 1,
+      unitPrice: 200,
+      discountAmount: 0,
+      totalPrice: 200,
+      stockAvailable: 20,
+      image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+      addedAt: "2024-01-15T10:00:00Z",
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,40 +44,8 @@ class CartViewBody extends StatelessWidget {
       child: ListView(
         children: [
           SizedBox(height: 32),
-          CartItemCard(
-            cartItemModel: CartItemModel(
-              id: 1,
-              productType: "productType",
-              productId: 3,
-              productName: "productName",
-              sku: "sku",
-              quantity: 1,
-              unitPrice: 200,
-              discountAmount: 0,
-              totalPrice: 200,
-              stockAvailable: 20,
-              image:
-                  "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
-              addedAt: "2024-01-15T10:00:00Z",
-            ),
-          ),
-          CartItemCard(
-            cartItemModel: CartItemModel(
-              id: 1,
-              productType: "productType",
-              productId: 3,
-              productName: "productName",
-              sku: "sku",
-              quantity: 1,
-              unitPrice: 200,
-              discountAmount: 0,
-              totalPrice: 200,
-              stockAvailable: 20,
-              image:
-              "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
-              addedAt: "2024-01-15T10:00:00Z",
-            ),
-          ),
+          CartItemCard(cartItemModel: cartList[0]),
+          CartItemCard(cartItemModel: cartList[1]),
           SizedBox(height: 24),
           DiscountCodeCard(),
           SizedBox(height: 24),
